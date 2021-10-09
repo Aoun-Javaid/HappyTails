@@ -1,9 +1,9 @@
 <mat-drawer-container >
     <mat-drawer #drawer >
         <div class="ml-5 mr-5 my-3 theme-clr">
-        <div> 
+        <div>
             <a (click)="drawer.close()" style="cursor: pointer;"> <mat-icon >close</mat-icon></a>
-        </div> 
+        </div>
         <div class="mt-5" >
             <a href="#" class="navbar-brand pointer"><img width="40px" src="/assets/images/happytails.png"><span style="margin-left: 10px;color:#000000d4;">Happy Tail</span> </a>
         </div>
@@ -16,14 +16,14 @@
         <a >About</a><br>
         <a >Newsroom</a><br>
         <a >Contact</a>
-        
+
        </div>
        <div class="mt-3 ">
         <p class="side-p">Programs</p>
         <a >HappyTail for Good</a><br>
         <a >Advertise</a><br>
-       
-        
+
+
        </div>
     </div>
 
@@ -33,7 +33,7 @@
         <nav class="navbar navbar-expand-md navbar-light  fixed-top" style="background-color: white;">
             <div class="container-fluid" style="padding-bottom: 11px; border-bottom: 1px solid #c0bdbd4f;">
                 <span>
-                    
+
                 <span *ngIf="!isLoggedIn"><a (click)="drawer.toggle()" style="cursor: pointer;margin-right: 10px;font-size: 25px;">☰ </a></span>
                 <a href="#" class="navbar-brand pointer"><img width="40px" src="/assets/images/happytails.png"><span style="margin-left: 10px;">Happy Tail</span> </a>
             </span>
@@ -41,7 +41,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button> -->
                 <!-- id="navbarCollapse" -->
-        
+
                 <div class="  justify-content-between">
                     <div class="navbar-nav">
                         <!-- <a href="#" class="nav-item nav-link active">Home</a>
@@ -63,12 +63,12 @@
                             </div> -->
                         </div>
                     </form>
-        
+
                     <!-- <div *ngIf="isLoggedIn">
                         <img class="profile-img" [src]="profile">
                     </div> -->
                     <div class=" right">
-                        
+
                         <div class="navbar-nav" *ngIf="!isLoggedIn">
                             <span><a><mat-icon class="upload-icon" style="top:5px;">cloud_upload</mat-icon></a></span>
                             <a class="btn theme-btn " (click)="loginModal.show()" >Login</a>
@@ -76,13 +76,13 @@
                         <!-- <span class="mt-2 mr-2" type="button" data-toggle="dropdown" *ngIf="isLoggedIn">
                             <img class="profile-img" [src]="profile"></span>
                         <ul class="dropdown-menu dropdown-mange">
-        
+
                             <li class="pointer dropdown-manges" routerLink="/profile">
                                 <span >Profile</span>
                             </li>
-        
+
                             <li class="pointer dropdown-manges">
-        
+
                                 <div class="navbar-nav" *ngIf="isLoggedIn">
                                     <span (click)="signOut()">Log Out</span>
                                 </div>
@@ -93,43 +93,43 @@
                             <span><a [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu" ><mat-icon class="notification-icon"> bubble_chart</mat-icon></a></span>
                             <span id="button-basic" dropdownToggle type="button" class="mt-2  dropdown-toggle"
                                     aria-controls="dropdown-basic">
-                                    <img class="profile-img"  [src]="profile">
+                                    <img class="profile-img"  src="assets/images/profile.png">
                             </span>
                             <ul id="dropdown-basic " *dropdownMenu class="dropdown-menu"
                                 role="menu" aria-labelledby="button-basic">
                               <li role="menuitem"><a class="dropdown-item" href="#">Profile</a></li>
                               <li role="menuitem"><a style="color: rgba(212, 81, 29, 0.986);" class="dropdown-item" (click)="signOut()">Log Out</a></li>
-                            
-                              
+
+
                             </ul>
                           </div>
                     </div>
-        
-        
+
+
                 </div>
             </div>
         </nav>
-        
+
         <button id="imageBtn" hidden (click)="imageChange()">change</button>
-        
+
         <router-outlet ></router-outlet>
-    
-        
+
+
         <!-- <button class="btn btn-primary" (click)="loginModal.show()">Large modal</button> -->
-         
-       
-      
+
+
+
     </mat-drawer-content>
   </mat-drawer-container>
   <!-- Menu For Notification -->
-  
+
   <mat-menu #menu="matMenu">
-     
+
       <h2 class="pl-1 py-1">Notification</h2>
       <mat-button-toggle-group [(ngModel)]="fontStyle" name="favoriteColor" aria-label="Favorite Color" (click)="$event.stopPropagation();$event.preventDefault();">
         <mat-button-toggle value="All" (click)="NotificationFetcher()">All</mat-button-toggle>
         <mat-button-toggle value="Likes">Likes</mat-button-toggle>
-        <mat-button-toggle value="Comments">Comments</mat-button-toggle>        
+        <mat-button-toggle value="Comments">Comments</mat-button-toggle>
         <mat-button-toggle value="Followers">Followers</mat-button-toggle>
       </mat-button-toggle-group>
       <p>Chosen value is {{fontStyle}}</p>
@@ -222,8 +222,8 @@
      </button>
    </div>
    <div class="modal-body ">
-     
-     <div class="row">   
+
+     <div class="row">
              <div class="col-3"></div>
              <div class="col-6 " style="text-align: center;">
                  <h1 class="no-marginBottom">Log in to Happy-Tail</h1>
@@ -242,7 +242,7 @@
                      <button type="button" class="btn btn-light btn1">
                          <div class="row">
                              <div class="col-1">
-                                 
+
                              </div>
                              <div class="col-11" style="padding: 0;">
                                  Log in with Facebook
@@ -258,7 +258,7 @@
                                  Log in with Google
                              </div>
                          </div>
-                     </button> 
+                     </button>
                      <button type="button" class="btn btn-light btn1">
                          <div class="row">
                              <div class="col-1">
@@ -268,7 +268,7 @@
                                  Log in with Twitter
                              </div>
                          </div>
-                     </button> 
+                     </button>
                      <button type="button" class="btn btn-light btn1">
                          <div class="row">
                              <div class="col-1">
@@ -278,7 +278,7 @@
                                  Log in with LINE
                              </div>
                          </div>
-                     </button> 
+                     </button>
                      <button type="button" class="btn btn-light btn1">
                          <div class="row">
                              <div class="col-1">
@@ -299,7 +299,7 @@
                              </div>
                          </div>
                      </button>
-                     
+
                  </div>
                  <p class="mt-3" style="text-align: center;">
                      Dont have an account? <a (click)="SignUpModal.show();loginModal.hide()" style="color: #5894bd">Sign up </a>
@@ -308,8 +308,8 @@
              </div>
              <div class="col-3"></div>
 
-             
-             
+
+
      </div>
    </div>
    <div class="modal-footer">
@@ -317,7 +317,7 @@
          <span><mat-icon class="help-icon">help</mat-icon></span>Feedback and help
      </a>
  </div>
-   
+
  </div>
 </div>
 </div>
@@ -334,8 +334,8 @@ role="dialog" aria-labelledby="dialog-sizes-name1">
    </button>
  </div>
  <div class="modal-body ">
-   
-   <div class="row">   
+
+   <div class="row">
            <div class="col-3"></div>
            <div class="col-6 " style="text-align: center;">
                <h1 class="no-marginBottom">Sign up to Happy-Tail</h1>
@@ -354,7 +354,7 @@ role="dialog" aria-labelledby="dialog-sizes-name1">
                    <button type="button" class="btn btn-light btn1">
                        <div class="row">
                            <div class="col-1">
-                               
+
                            </div>
                            <div class="col-11">
                                Sign up with Facebook
@@ -370,7 +370,7 @@ role="dialog" aria-labelledby="dialog-sizes-name1">
                                Sign up with Google
                            </div>
                        </div>
-                   </button>                    
+                   </button>
                </div>
                <p style="color: #bcbcbd;" class="mt-5">
                    By Continuing you agree to HappyTail's <span style="color: black;"><a>Terms of Use</a></span> and confirm that you have read HappyTail's <span style="color: black;"><a>Privacy Policy</a></span>
@@ -379,8 +379,8 @@ role="dialog" aria-labelledby="dialog-sizes-name1">
                    Already have an account? <a (click)="SignUpModal.hide();loginModal.show()" style="color: #5894bd">Log in </a>
                </p>
            </div>
-           <div class="col-3"></div>          
-           
+           <div class="col-3"></div>
+
    </div>
  </div>
  <div class="modal-footer">
@@ -388,7 +388,7 @@ role="dialog" aria-labelledby="dialog-sizes-name1">
        <span><mat-icon class="help-icon">help</mat-icon></span>Feedback and help
    </a>
 </div>
- 
+
 </div>
 </div>
 </div>

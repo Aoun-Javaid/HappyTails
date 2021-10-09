@@ -138,7 +138,7 @@
 .contact-attribute-icon{
     font-size: 40px;
     position: relative;
-   
+
 }
 .flex-container{
     display: flex;
@@ -150,3 +150,7 @@ a{
 /* ::ng-deep .ng-star-inserted{
     width: 100% !important;
 } */
+
+img{
+  /*margin-left: 10px;*/
+}
