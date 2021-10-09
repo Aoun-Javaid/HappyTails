@@ -1,0 +1,110 @@
+
+<div style="height: 40px;"></div>
+<div class="container" style="margin-top: 20px;">
+    <div class="row">
+
+        <div class="col-md-5 col-sm-8 col-12 ml-auto mr-auto">
+            <div class="center mb-4">
+
+                <h1>HUPPY TAIL</h1>
+
+            </div>
+            <div class=" p-3 card ">
+                <h2>Login</h2>
+                <form (submit)="checkLogin(f, notesTemplate)" #f="ngForm">
+                    <div>
+                        <label class="mb-0 mt-0 ml-1">Email</label>
+
+                        <input type="email" name="email" ngModel email #email="ngModel" (ngModelChange)="removeErrors('#l1')" required class="form-control input-field-custom" placeholder="abc@xyz.com">
+                        <span class="help-block position-absolute" id="l1"></span>
+                    </div>
+                    <div>
+                        <label class="mb-0 mt-3 ml-1">Password</label>
+                        <div class="input-field-custom has-search position-relative initial">
+                            <input style="background-color: transparent !important;
+                        border: none;
+                        padding: 11px;
+                        border-radius: 5px;
+                        width: 90%;" [type]="show ? 'text' : 'password'" id="pass" minlength="6" maxlength="30" ngModel name="password" #password="ngModel" (ngModelChange)="removeErrors('#l2')" required placeholder="*******">
+                            <img [src]="visibilityIcon" height="20px" (click)="passwordShowHide()">
+
+                        </div>
+                        <span class="help-block position-absolute" id="l2"></span>
+                    </div>
+
+                    <button class="mt-4 sign-in-btn" type="submit"> Sign In </button>
+                    <!-- <p class="forgot-password pointer theme-clr" (click)="modalFP(fpTemplate)">Forgot Password?</p> -->
+
+                    <!-- <div class="d-flex">
+                        <hr class="line-hr"><span class="mt-2">OR</span>
+                        <hr class="line-hr">
+                    </div> -->
+                    <!-- <button class="mt-3 fb-btn " type="submit" (click)="signInWithFB()">
+                        <img class="fb-icon"  src="./assets/images/fb.png">
+                        <span class="fb-text"  >Facebook</span> 
+                        </button>
+                    <button class="mt-3 google-btn mb-3" type="submit" (click)="signInWithGoogle()"><img class="fb-icon"  src="./assets/images/google.png">
+                        <span class="fb-text"  >   Google</span> </button> -->
+
+                    <p class="mt-3" style="text-align: center;">New member? <a routerLink="/signup" class="join-todays">Sign up </a>here
+                    </p>
+                    <div class="center mt-4">
+                        <a routerLink="/home"> Continue as Guest 
+                    </a>
+                    </div>
+                </form>
+                <!-- <div class="social-box">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="btn facebookbtn" (click)="signInWithFB()">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                            <span #btnGoogle class="btn googlebtn" id="btnGoogleId" (click)="signInWithGoogle()">
+                                <i class="fa fa-google-plus"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <!-- <div class="text-center mt-3">
+                <h3>Get the app.</h3>
+                <img class="googleplay-img" src="./assets/images/googleplay.png">
+
+            </div> -->
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<ng-template #notesTemplate>
+    <div class="modal-header">
+        <h3 class="modal-title m-0 title-modal">Login</h3>
+
+        <button type="button" (click)="modalRef.hide()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+
+        <p style="    font-size: 20px;
+        text-align: center;">Let’s get started saving some animals.</p>
+        <!-- *ngIf="spinloader==false"  -->
+        <!-- <div *ngIf="spinloader==true" class="row justify-content-center">
+            <div class="spinner-border text-danger" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div> -->
+    </div>
+
+    <div class="modal-footer">
+        <button (click)="onSubmitAdd()" class="theme-btn w-100 btn btn-bg" type="button"> OK</button> &nbsp;&nbsp;
+
+
+    </div>
+</ng-template>
+
+<!-- New Code -->
+

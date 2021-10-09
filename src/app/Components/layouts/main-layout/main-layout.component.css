@@ -1,0 +1,146 @@
+.login-btn {
+    width: 100%;
+    color: #fe3159;
+    background-color: transparent;
+    border: 1px solid #fe2c55;
+    height: 48px;
+    border-radius: 4px;
+}
+
+.logo-size {
+    width: 90px;
+}
+
+.sug-acc-img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.bs-example {
+    margin: 20px;
+}
+
+.follow-btn {
+    color: #fe3159;
+    background-color: transparent;
+    border: 1px solid #fe2c55;
+    height: 48px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    min-width: 88px;
+    padding: 0px 10px;
+    height: 28px;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.dropdown-manges:hover {
+    background-color: #ddd;
+    padding: 5px;
+}
+
+.dropdown-mange {
+    padding: 10px;
+}
+.btn1{
+    width: 100% !important;
+    margin-bottom: 5px;
+    border:1px solid lightgray;
+    background-color: white;
+    
+  }
+  .btn1:hover{
+    background-color: lightgray;
+  }
+  .no-marginBottom{
+    margin-bottom: 0px !important;;
+  }
+  
+  .modal-footer{
+    border-top: none !important;
+  }
+
+  .modal-header{
+      border-bottom: none !important;
+  }
+  .help-icon{
+    position: relative;
+      top: 6px;
+      right: 3px;
+      font-size: 21px;
+  }
+  /* Sidebar css */
+  
+  
+  mat-drawer-content {
+   
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: white;
+    color: #000000d4;
+  }
+  .mat-drawer{
+      width:auto;
+      background-color: white;
+      color: #000000d4;
+     
+  }
+  a{
+      cursor: pointer;
+  }
+  .side-p{
+    color: gray;
+    margin-bottom: 0px;
+  }
+  .flex-container{
+      display: flex;
+      justify-content: space-between;
+  }
+  .dropdown-toggle::after{
+      display: none;
+  }
+  .upload-icon{
+    position: relative;
+    font-size: 32px;
+    right: 25px;
+    top: 10px;
+    margin-left: 25px;
+    color: #205f60;
+    cursor: pointer;
+  }
+  .notification-icon{
+    position: relative;
+    font-size: 32px;
+    right: 25px;
+    top: 10px;
+    margin-left: 25px;
+    color: orangered;
+    cursor: pointer;
+  }
+  .dropdown-item {
+      text-align: center;
+  }
+  ::ng-deep .mat-menu-panel {
+    background: white;
+}
+/* ::ng-deep .mat-button-toggle-appearance-standard {
+    color: black;
+    background: #42424221;
+} */
+
+::ng-deep .mat-button-toggle-appearance-standard {
+    color: #fff;
+    background: #5894bd96;
+}
+::ng-deep .mat-button-toggle-checked {
+    background-color: #5894bd;
+    color: rgba(255,255,255,.7);
+}

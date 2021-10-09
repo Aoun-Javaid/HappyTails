@@ -1,0 +1,108 @@
+.input-field-custom {
+background-color: #FEFCFC;
+  border-radius: 4px;
+  border: transparent;
+  /* font-size: 13px; */
+  font-weight: 400;
+  height: 45px;
+  border: 1px solid rgba(121, 121, 121, 0.9);
+  /* text-align: center */
+}
+
+.sign-in-btn {
+  background: #5894bd;
+  border-radius: 4px;
+  border: transparent;
+  height: 45px;
+  color: white;
+  width: -webkit-fill-available;
+}
+.fb-btn{
+  background: #4267B2;
+  border-radius: 4px;
+  border: transparent;
+  height: 45px;
+  color: white;
+  width: -webkit-fill-available;
+}
+.google-btn{
+  background: #444549;
+  border-radius: 4px;
+  border: transparent;
+  height: 45px;
+  color: white;
+  width: -webkit-fill-available;
+}
+
+.has-search .form-control {
+  padding-left: 3rem;
+  padding-right: 3rem;
+  border-radius: 15px;
+  border: transparent;
+  background-color: #ededed;
+  font-size: 13px;
+  font-weight: 400;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  height: 70px;
+}
+
+.initial {
+  text-align: initial;
+}
+.forgot-password {
+  text-align: right;
+  margin-top: 4px;
+}
+.join-today {
+  color: #ff5757;
+}
+.submit-btn {
+  background-color: #ff5757;
+  border: transparent;
+}
+.modalTitle {
+  font-size: 30px;
+  text-align: center;
+}
+.line-hr{
+  width: 40%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.googleplay-img{
+  width: 212px;
+  height: 59px;
+}
+
+.fb-icon{
+  margin-left: -75px;
+}
+.fb-text{
+  margin-left: 50px;
+}
+.back-icon {
+  height: 20px;
+  width: 20px;
+}
+.hide-show {
+  float: right;
+  position: relative;
+  margin-top: -30px;
+  margin-right: 10px;
+}
+/* New Css */
+
+.modal-header{
+  border-bottom:none !important;
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+.no-marginBottom{
+  margin-bottom: 0px !important;;
+}
+
+.modal-footer{
+  border-top: none !important;
+}

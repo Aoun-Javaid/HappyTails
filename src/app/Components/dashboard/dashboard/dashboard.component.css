@@ -1,0 +1,21 @@
+::ng-deep .ng-star-inserted{
+     width: 100% !important;
+}
+.left-span-text{
+     font-size: 22px;
+    margin-left: 15px;
+    color: #343638;
+}
+a{
+     cursor: pointer;
+}
+.right-input-style{
+     border-radius: 0% !important;
+
+}
+::ng-deep .mat-tab-label{
+     color: black !important;
+}
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+     background-color: #5894bd !important;
+ }

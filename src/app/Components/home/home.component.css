@@ -1,0 +1,152 @@
+.login-btn {
+    width: 90%;
+    color: #5894bd;
+    background-color: transparent;
+    border: 1px solid #5894bd;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.sug-acc-img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: 1px solid gray;
+}
+
+.follow-btn {
+    color: #fe3159;
+    background-color: transparent;
+    border: 1px solid #fe2c55;
+    height: 48px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    min-width: 88px;
+    padding: 0px 10px;
+    height: 28px;
+}
+
+.like-comment {
+    margin-left: 5px;
+    margin-top: 100px;
+}
+
+.edit-comment-bar {
+    width: 89%;
+    height: 25px;
+    margin: 10px 0px 10px 6px;
+    border-radius: 5px;
+    border-color: #ff5757;
+    border: 1px solid #ff5757;
+    padding: 0 0 0 10px;
+}
+
+@media (max-width: 540px) {
+    .edit-comment-bar {
+        width: 89%;
+    }
+}
+
+@media (max-width: 465px) {
+    .edit-comment-bar {
+        width: 82%;
+    }
+    .comment-edit {
+        width: 87%;
+    }
+}
+
+.comment-input-field {
+    border: none;
+    width: 94%;
+}
+
+@media (max-width: 405px) {
+    .comment-input-field {
+        width: 91%;
+    }
+}
+
+.comment-lenght {
+    line-break: anywhere;
+}
+
+@media (max-width: 465px) {
+    .edit-comment-bar {
+        width: 82%;
+    }
+    .comment-edit {
+        width: 87%;
+    }
+}
+
+.comment-edit {
+    border: none;
+    width: 94%;
+}
+
+.comment-bar {
+    width: 100%;
+    border-radius: 5px;
+    border-color: #ff5757;
+    border: 1px solid #ff5757;
+    margin: 0px 20px 0px 20px;
+    padding: 0 0 0 20px;
+}
+
+.comment-username {
+    font-weight: bold;
+}
+
+.comment-acc {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+@media (max-width: 340px) {
+    .comment-acc {
+        height: 29px;
+        width: 29px;
+        margin-top: 4px;
+    }
+}
+.Main-slogan{
+    font-size: 50px;
+    font-weight: 600;
+}
+.play-icon{
+    position: relative;
+    font-size: 20px;
+    top: 4px;
+    right: 6px;
+}
+.btn{
+    width: auto !important;
+}
+.contact{
+    font-size: 40px;
+    font-weight: 500;
+}
+.contact-attribute{
+    font-size: 30px;
+    margin-bottom: 5px;
+    font-weight: 400;
+}
+.contact-attribute-icon{
+    font-size: 40px;
+    position: relative;
+   
+}
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+}
+a{
+    cursor: pointer;
+}
+/* ::ng-deep .ng-star-inserted{
+    width: 100% !important;
+} */

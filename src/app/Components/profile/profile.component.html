@@ -1,0 +1,283 @@
+<div style="height: 80px;"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="d-flex">
+                <img style="width: 30px; height: 30px;" src="./assets/images/user.png">
+                <h3 class="ml-2 pointer" routerLink="/home">Profile</h3>
+            </div>
+            <div class="d-flex">
+
+            </div>
+
+            <hr>
+            <div class="d-flex">
+                <img *ngIf="resultList1.profile_picture== ''" class="sug-acc-img mr-2 mb-1"
+                    src="/assets/images/default.jpg">
+                <img *ngIf="resultList1.profile_picture!= ''" class="profile-img mr-2"
+                    [src]="resultList1?.profile_picture_url">
+                <div class="mt-2">
+                    <h3>{{resultList1?.username}}</h3>
+                    <div class=" profile-edit-manage">
+                        <button (click)="modalEditProfile(editProfileTemplate)" class="theme-btn btn btn-bg btn-sm">Edit
+                        Profile</button>
+                    </div>
+
+                </div>
+            </div>
+            <hr>
+            
+            <div class="p-2">
+                <span>{{resultList1?.shelter_bio}}</span>
+            </div>
+
+        </div>
+        <div class="col-8 container">
+
+       
+
+       
+
+<div *ngIf="role==0"> 
+
+
+            <div class=" d-flex justify-content-center">
+
+                <div *ngIf="color == 1" class="d-flex">
+
+                    <button class="like-btn" (click)="toggle(1)">
+                        Liked
+                    </button>&nbsp;&nbsp;&nbsp;
+                    <button class="theme-btn-trnsp" (click)="toggle(2)">
+                        Saved
+                    </button> &nbsp;&nbsp;&nbsp;
+
+                </div>
+                <div *ngIf="color == 2" class="d-flex">
+
+                    <button class="theme-btn-trnsp" (click)="toggle(1)">
+                        Liked
+
+                    </button>&nbsp;&nbsp;&nbsp;
+                    <button class="like-btn" (click)="toggle(2)">
+                        Saved
+                    </button>&nbsp;&nbsp;&nbsp;
+                </div>
+
+
+            </div>
+
+            <br>
+
+            <div *ngIf="color == 1">
+
+                <div *ngFor="let likeList of likeResult">
+                    <div class="d-flex justify-content-center mb-3">
+                        <video width="280" height="400" controls style="object-fit: initial;">
+                            <source [src]="likeList.video_url" type="video/mp4">
+
+                        </video>
+                    </div>
+                </div>
+
+            </div>
+
+            <div *ngIf="color == 2">
+
+                <div *ngFor="let saveList of saveResult">
+                    <div class="d-flex justify-content-center mb-3">
+                        <video width="280" height="400" controls style="object-fit: initial;">
+                            <source [src]="saveList.video_url" type="video/mp4">
+
+                        </video>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div  *ngIf="role==1">
+
+            <div *ngIf="postVideo?.length < 1">
+                <div colspan="8" class="">
+                    <span class="text-center d-block theme-clr" style="font-size: x-large;">No Video </span>
+                </div>
+            </div>
+            <div *ngFor="let post of postVideo">
+                <div class="d-flex justify-content-center mb-3">
+                    <video width="280" height="400" controls style="object-fit: initial;">
+                        <source [src]="post.video_url" type="video/mp4">
+
+                    </video>
+                </div>
+            </div>
+        
+        </div>
+
+        </div>
+
+
+
+
+    </div>
+</div>
+<ng-template #editProfileTemplate>
+    <div class="modal-header">
+        <div class="d-flex">
+            <h3 class="modal-title m-0 title-modal">Edit Profile</h3>
+        </div>
+        <button type="button" (click)="modalRef.hide()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    
+    <div *ngIf="role==0">
+        <div class="modal-body">
+
+            <div class="row justify-content-center mb-2">
+                <div class="admin-circle-card">
+
+                    <img class="profile-photo" [src]="resultList1?.profile_picture_url">
+
+                
+                </div>
+            </div>
+
+
+
+            <form #f="ngForm"  class=" ng-pristine ng-invalid ng-touched">
+                <div>
+                    <label class="mb-0 mt-0 ml-1">User Name</label>
+                    <input name="username" maxlength="25" [(ngModel)]="username" (ngModelChange)="removeErrors('#l1')" required class="form-control" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l1"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Email</label>
+                    <input readonly name="email" maxlength="150" [(ngModel)]="email" (ngModelChange)="removeErrors('#l2')" required class="form-control" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l2"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Mobile Number</label>
+                   
+                    <input name="phone" maxlength="150" [(ngModel)]="phone" (ngModelChange)="removeErrors('#l3')" required class="form-control" type="text"> 
+                    <span class="ml-1 help-block position-absolute" id="l3"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Address</label>
+                   
+                    <input  name="address" maxlength="150" [(ngModel)]="address" (ngModelChange)="removeErrors('#l4')" required class="form-control" type="text"> 
+                    <span class="ml-1 help-block position-absolute" id="l4"></span>
+                </div>
+               
+               
+              
+                <label class="mb-0 mt-3 ml-1">Select State</label>
+
+                <ng-select [clearable]="false" (ngModelChange)="removeErrors('#l10')"[items]="state" bindLabel="name" bindValue="id" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedState">
+                </ng-select>
+                <span style="    margin-left: -8px;
+                            margin-top: 8px;" class=" help-block position-absolute" id="l10"></span>
+
+            </form>
+          
+
+        </div>
+        <div class="modal-footer" >
+            <button (click)="checkUpdateProfile()"  class="theme-btn btn btn-bg btn-sm" type="submit">Update</button>
+            
+        </div>
+    </div>
+
+    <div *ngIf="role==1">
+        <div class="modal-body">
+
+            <div  class="row justify-content-center mb-2">
+                <div class="admin-circle-card">
+
+                    <img class="profile-photo" [src]="resultList1?.profile_picture_url">
+
+                
+                </div>
+            </div>
+
+
+
+            <form #f="ngForm"  class=" ng-pristine ng-invalid ng-touched">
+                <div>
+                    <label class="mb-0 mt-0 ml-1">User Name</label>
+                    <input name="username" maxlength="25" [(ngModel)]="username" (ngModelChange)="removeErrors('#l1')" required class="form-control" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l1"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Email</label>
+                    <input readonly name="email" maxlength="150" [(ngModel)]="email" (ngModelChange)="removeErrors('#l2')" required class="form-control" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l2"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Mobile Number</label>
+                   
+                    <input name="phone" maxlength="150" [(ngModel)]="phone" (ngModelChange)="removeErrors('#l3')" required class="form-control" type="text"> 
+                    <span class="ml-1 help-block position-absolute" id="l3"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Address</label>
+                   
+                    <input  name="address" maxlength="150" [(ngModel)]="address" (ngModelChange)="removeErrors('#l4')" required class="form-control" type="text"> 
+                    <span class="ml-1 help-block position-absolute" id="l4"></span>
+                </div>
+               
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Shelter/Organization</label>
+
+                    <input name="shelter" [(ngModel)]="shelter_name" (ngModelChange)="removeErrors('#l5')" placeholder="" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l5"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">City</label>
+
+                    <input name="city" [(ngModel)]="shelter_city" (ngModelChange)="removeErrors('#l6')" placeholder="" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l6"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Bio</label>
+
+                    <input name="bio" [(ngModel)]="bio" (ngModelChange)="removeErrors('#l7')" placeholder="" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l7"></span>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div>
+                            <label class="mb-0 mt-3 ml-1">Opening Hour</label>
+
+                            <input name="open" [(ngModel)]="opening_hour" (ngModelChange)="removeErrors('#l8')" placeholder="" required class="form-control input-field-custom" type="text">
+                            <span class="ml-1 help-block position-absolute" id="l8"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            <label class="mb-0 mt-3 ml-1">Closing Hour</label>
+
+                            <input name="close" [(ngModel)]="closing_hour" (ngModelChange)="removeErrors('#l9')" placeholder="" required class="form-control input-field-custom" type="text">
+                            <span class="ml-1 help-block position-absolute" id="l9"></span>
+                        </div>
+                    </div>
+                </div>
+
+              
+                <label class="mb-0 mt-3 ml-1">Select State</label>
+
+                <ng-select [clearable]="false" (ngModelChange)="removeErrors('#l10')"[items]="state" bindLabel="name" bindValue="id" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedState">
+                </ng-select>
+                <span style="    margin-left: -8px;
+                            margin-top: 8px;" class=" help-block position-absolute" id="l10"></span>
+
+            </form>
+          
+
+        </div>
+        <div class="modal-footer" >
+            <button (click)="checkUpdateProfileShelter()"  class="theme-btn btn btn-bg btn-sm" type="submit">Update</button>
+            
+        </div>
+    </div>
+   
+</ng-template>

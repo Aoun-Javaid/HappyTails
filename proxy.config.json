@@ -1,0 +1,8 @@
+{
+    "/api/*": {
+        "target": "http://api.happytailstv.com",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

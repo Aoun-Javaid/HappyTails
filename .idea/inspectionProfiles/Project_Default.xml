@@ -1,0 +1,65 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="11" name="Style Sheets" />
+        <language minSize="170" name="TypeScript" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="12">
+            <item index="0" class="java.lang.String" itemvalue="mat-menu-item" />
+            <item index="1" class="java.lang.String" itemvalue="mat-button" />
+            <item index="2" class="java.lang.String" itemvalue="ngbdropdownitem" />
+            <item index="3" class="java.lang.String" itemvalue="ngbdropdownmenu" />
+            <item index="4" class="java.lang.String" itemvalue="ngbdropdown" />
+            <item index="5" class="java.lang.String" itemvalue="ngbdropdowntoggle" />
+            <item index="6" class="java.lang.String" itemvalue="mdbwaveseffect" />
+            <item index="7" class="java.lang.String" itemvalue="mdbdropdown" />
+            <item index="8" class="java.lang.String" itemvalue="mdbdropdowntoggle" />
+            <item index="9" class="java.lang.String" itemvalue="mdbbtn" />
+            <item index="10" class="java.lang.String" itemvalue="color" />
+            <item index="11" class="java.lang.String" itemvalue="main" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="22">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="mat-button-toggle-group" />
+            <item index="7" class="java.lang.String" itemvalue="mat-button-toggle" />
+            <item index="8" class="java.lang.String" itemvalue="mat-menu" />
+            <item index="9" class="java.lang.String" itemvalue="mat-icon" />
+            <item index="10" class="java.lang.String" itemvalue="rel" />
+            <item index="11" class="java.lang.String" itemvalue="href" />
+            <item index="12" class="java.lang.String" itemvalue="owl-carousel-o" />
+            <item index="13" class="java.lang.String" itemvalue="timer" />
+            <item index="14" class="java.lang.String" itemvalue="ion-nav-push" />
+            <item index="15" class="java.lang.String" itemvalue="ion-nav-set-root" />
+            <item index="16" class="java.lang.String" itemvalue="app-heading" />
+            <item index="17" class="java.lang.String" itemvalue="dx-html-editor" />
+            <item index="18" class="java.lang.String" itemvalue="dxi-item" />
+            <item index="19" class="java.lang.String" itemvalue="dxo-toolbar" />
+            <item index="20" class="java.lang.String" itemvalue="dxo-media-resizing" />
+            <item index="21" class="java.lang.String" itemvalue="dx-check-box" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="TsLint" enabled="true" level="WARNING" enabled_by_default="true" />
+  </profile>
+</component>

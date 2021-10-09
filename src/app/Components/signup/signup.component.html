@@ -1,0 +1,256 @@
+<div style="height: 40px;"></div>
+<div class="container">
+    <div class="col-md-6 col-sm-9 col-12 ml-auto mr-auto">
+        <div class="center mb-4">
+
+            <img width="150px" src="/assets/images/happytails.png">
+        </div>
+        <div class="p-3 card mb-2" *ngIf="formToggle">
+            <h1>Sign Up</h1>
+            <div class="justify-content-center center" *ngIf="formBool==0">
+                <h2>Are you</h2>
+                <button (click)="formCall(1,0)" class="sign-up-btn" type="button">
+                    Here to meet animals in need of rescue
+                </button>
+                <h2 class="mt-2">Or</h2>
+                <button (click)="formCall(2,1)" class="sign-up-btn" type="button">
+                    A shelter/rescue/foster organization
+                </button>
+            </div>
+            <form (submit)="checkSignup(f)" *ngIf="formBool==2" #f="ngForm">
+                <div class="row justify-content-center mt-3 mb-2">
+                    <div class="admin-circle-card">
+
+                        <img class="profile-photo" *ngIf="profilePic" [src]="profilePic">
+
+                        <span class="profileImgText theme-clr-2" *ngIf="!profilePic">
+                            <label class="pointer" for="file_input_id_img">Add profile</label>
+                            <input name="file" type="file" id="file_input_id_img"
+                                (change)="handleFileInput($event.target.files)" style="display: none"
+                                accept=".PNG,.JPG,.SVG,.GIF">
+
+
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Name</label>
+
+                    <input name="name" [(ngModel)]="name" (ngModelChange)="removeErrors('#l2')" placeholder="Name" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l2"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">User name</label>
+
+                    <input name="userName" [(ngModel)]="userName" (ngModelChange)="removeErrors('#l3')" placeholder="user Name" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l3"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Email</label>
+
+                    <input name="email" [(ngModel)]="email" placeholder="abc@xyz.com" (ngModelChange)="removeErrors('#l4')" required class="form-control input-field-custom" type="email">
+                    <span class="ml-1 help-block position-absolute" id="l4"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Phone No</label>
+
+                    <input name="phoneNo" [(ngModel)]="phoneNo" (ngModelChange)="removeErrors('#l5')" placeholder="Mobile Number" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l5"></span>
+                </div>
+
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Address</label>
+
+                    <input name="address" [(ngModel)]="address" (ngModelChange)="removeErrors('#l6')" placeholder="" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l6"></span>
+                </div>
+
+
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Password</label>
+
+                    <input [type]="show ? 'text' : 'password'" minlength="6" maxlength="30" name="password" placeholder="******" [(ngModel)]="password" (ngModelChange)="removeErrors('#l8')" required class="form-control input-field-custom" type="password">
+                    <img class="hide-show" [src]="visibilityIcon" height="20px" (click)="passwordShowHide()">
+                    <span class="ml-1 help-block position-absolute" id="l8"></span>
+                </div>
+
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Confirm Password</label>
+
+                    <input [type]="show1 ? 'text' : 'password'" minlength="6" maxlength="30" name="confirmPassword" placeholder="******" [(ngModel)]="confirmPassword" (ngModelChange)="removeErrors('#l9')" required class="form-control input-field-custom" type="password">
+                    <img class="hide-show" [src]="visibilityIcon1" height="20px" (click)="passwordShowHideConfirmPassword()">
+                    <span class="ml-1 help-block position-absolute" id="l9"></span>
+
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Shelter/Organization</label>
+
+                    <input name="shelter" [(ngModel)]="shelter" (ngModelChange)="removeErrors('#l10')" placeholder="" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l10"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">City</label>
+
+                    <input name="city" [(ngModel)]="city" (ngModelChange)="removeErrors('#l11')" placeholder="" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l11"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Bio</label>
+
+                    <input name="bio" [(ngModel)]="bio" (ngModelChange)="removeErrors('#l12')" placeholder="" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l12"></span>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div>
+                            <label class="mb-0 mt-3 ml-1">Opening Hour</label>
+
+                            <input name="open" [(ngModel)]="open" (ngModelChange)="removeErrors('#l13')" placeholder="" required class="form-control input-field-custom" type="text">
+                            <span class="ml-1 help-block position-absolute" id="l13"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div>
+                            <label class="mb-0 mt-3 ml-1">Closing Hour</label>
+
+                            <input name="close" [(ngModel)]="close" (ngModelChange)="removeErrors('#l14')" placeholder="" required class="form-control input-field-custom" type="text">
+                            <span class="ml-1 help-block position-absolute" id="l14"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <label class="mb-0 mt-3 ml-1">State</label>
+                <div>
+                    <div class="w-100">
+                        <ng-select [clearable]="false" (ngModelChange)="removeErrors('#l7')" [items]="state" bindLabel="name" bindValue="id" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedState">
+                        </ng-select>
+                    </div> <span style="margin-left: -8px; margin-top: 8px;" class=" help-block position-absolute" id="l7"></span>
+                </div>
+
+
+                <div>
+
+                    <button class="mt-4 sign-up-btn btn btn-outline-success" type="submit"> Sign Up </button>
+                    <h4 class="text-center mt-2">Already member?<span class="theme-clr pointer" routerLink="/login">
+                            Sign in </span>here.</h4>
+
+                </div>
+            </form>
+
+            <form (submit)="checkSignup(f)" *ngIf="formBool==1" #f="ngForm">
+                <div class="row justify-content-center mt-3 mb-2">
+                    <div class="admin-circle-card">
+
+                        <img class="profile-photo" *ngIf="profilePic" [src]="profilePic">
+
+                        <span class="profileImgText theme-clr-2" *ngIf="!profilePic">
+                            <label class="pointer" for="file_input_id_img">Add profile</label>
+                            <input name="file" type="file" id="file_input_id_img"
+                                (change)="handleFileInput($event.target.files)" style="display: none"
+                                accept=".PNG,.JPG,.SVG,.GIF">
+
+
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Name</label>
+
+                    <input name="name" [(ngModel)]="name" (ngModelChange)="removeErrors('#l2')" placeholder="Name" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l2"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">User name</label>
+
+                    <input name="userName" [(ngModel)]="userName" (ngModelChange)="removeErrors('#l3')" placeholder="user Name" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l3"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Email</label>
+
+                    <input name="email" [(ngModel)]="email" placeholder="abc@xyz.com" (ngModelChange)="removeErrors('#l4')" required class="form-control input-field-custom" type="email">
+                    <span class="ml-1 help-block position-absolute" id="l4"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Phone No</label>
+
+                    <input name="phoneNo" [(ngModel)]="phoneNo" (ngModelChange)="removeErrors('#l5')" placeholder="Mobile Number" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l5"></span>
+                </div>
+
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Address</label>
+
+                    <input name="address" [(ngModel)]="address" (ngModelChange)="removeErrors('#l6')" placeholder="" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l6"></span>
+                </div>
+
+
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Password</label>
+
+                    <input [type]="show ? 'text' : 'password'" minlength="6" maxlength="30" name="password" placeholder="******" [(ngModel)]="password" (ngModelChange)="removeErrors('#l8')" required class="form-control input-field-custom" type="password">
+                    <img class="hide-show" [src]="visibilityIcon" height="20px" (click)="passwordShowHide()">
+                    <span class="ml-1 help-block position-absolute" id="l8"></span>
+                </div>
+
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Confirm Password</label>
+
+                    <input [type]="show1 ? 'text' : 'password'" minlength="6" maxlength="30" name="confirmPassword" placeholder="******" [(ngModel)]="confirmPassword" (ngModelChange)="removeErrors('#l9')" required class="form-control input-field-custom" type="password">
+                    <img class="hide-show" [src]="visibilityIcon1" height="20px" (click)="passwordShowHideConfirmPassword()">
+                    <span class="ml-1 help-block position-absolute" id="l9"></span>
+
+                </div>
+
+                <div>
+                    <label class="mb-0 mt-3 ml-1">City</label>
+
+                    <input name="city" [(ngModel)]="city" (ngModelChange)="removeErrors('#l11')" placeholder="" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l11"></span>
+                </div>
+                <div>
+                    <label class="mb-0 mt-3 ml-1">Bio</label>
+
+                    <input name="bio" [(ngModel)]="bio" (ngModelChange)="removeErrors('#l12')" placeholder="" required class="form-control input-field-custom" type="text">
+                    <span class="ml-1 help-block position-absolute" id="l12"></span>
+                </div>
+
+
+                <label class="mb-0 mt-3 ml-1">State</label>
+                <div>
+                    <div class="w-100">
+                        <ng-select [clearable]="false" (ngModelChange)="removeErrors('#l7')" [items]="state" bindLabel="name" bindValue="id" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedState">
+                        </ng-select>
+                    </div> <span style="margin-left: -8px; margin-top: 8px;" class=" help-block position-absolute" id="l7"></span>
+                </div>
+
+
+                <div>
+
+                    <button class="mt-4 sign-up-btn btn btn-outline-success" type="submit"> Sign Up </button>
+                    <h4 class="text-center mt-2">Already member?<span class="theme-clr pointer" routerLink="/login">
+                            Sign in </span>here.</h4>
+
+                </div>
+            </form>
+
+
+
+        </div>
+
+        <div class="p-3 card center mb-2" *ngIf="!formToggle">
+            <img class="icon pointer" (click)="back()" src="./assets/images/back.png" alt="">
+            <h2>Verify Your Email</h2>
+            <h5>Enter 4-digit code send to your email</h5>
+            <otp [setting]="settings" (onValueChange)="onInputChange($event)"></otp>
+
+        </div>
+    </div>
+</div>

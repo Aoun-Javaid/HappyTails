@@ -1,0 +1,72 @@
+.input-field-custom {
+    background-color: #FEFCFC;
+    border-radius: 4px;
+    font-weight: 400;
+    border: 1px solid #CCB!important;
+    height: 36px;
+}
+
+.sign-up-btn {
+    background: #5894bd;
+    border-radius: 4px;
+    border: transparent;
+    height: 45px;
+    color: white;
+}
+
+.otp-img {
+    height: 100px;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.icon {
+    height: 15px;
+    width: 25px;
+}
+
+.profile-photo {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    border: 1px solid gray;
+}
+
+.custom-btn {
+    border-radius: 10px;
+    margin-top: 10px;
+    height: 50px;
+    /* width: 150px; */
+    color: #6c757d;
+    background-color: #e2e2e2;
+    border-color: #e2e2e2;
+    width: -webkit-fill-available;
+    text-align: left;
+}
+
+.tag-line {
+    text-align: center;
+}
+
+.has-search .form-control {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border-radius: 15px;
+    border: transparent;
+    background-color: #ededed;
+    font-size: 13px;
+    font-weight: 400;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    height: 70px;
+}
+
+.hide-show {
+    float: right;
+    position: relative;
+    margin-top: -30px;
+    margin-right: 10px;
+}

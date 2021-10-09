@@ -1,0 +1,8 @@
+:ng-deep .theme-btn{
+     background: #5894bd !important;
+     color: white !important;
+     
+   }
+   ::ng-deep .theme-clr{
+     color:#5894bd !important;
+   }

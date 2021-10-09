@@ -1,0 +1,169 @@
+<div style="height: 80px;"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <div class="d-flex">
+                <img routerLink="/home" class="pointer" style="width: 20px;height: 20px;" src="./assets/images/home.png">
+                <h2 routerLink="/home" class="ml-2 pointer" style="margin-top:-5px">Home</h2>
+            </div>
+            <div *ngIf="isLoggedIn" class="d-flex">
+                <img routerLink="/search" class="pointer" style="width: 20px;height: 20px;" src="./assets/images/search-icon.png">
+                <h2 routerLink="/search" class="ml-2 pointer" style="margin-top:-5px">Search</h2>
+            </div>
+
+            <div *ngIf="!isLoggedIn" class="d-flex">
+                <img routerLink="/login" class="pointer" style="width: 20px;height: 20px;" src="./assets/images/search-icon.png">
+                <h2 routerLink="/login" class="ml-2 pointer" style="margin-top:-5px">Search</h2>
+            </div>
+
+
+            <div *ngIf="!isLoggedIn">
+                <hr>
+                <p>Log in to follow creators, like videos, and view comments.</p>
+                <button class="login-btn" routerLink="/login">Login</button>
+            </div>
+            <hr>
+        </div>
+        <div class="col-8">
+            <div class="row m-0">
+                <div class="col">
+                    <label class="mb-0 ml-1">State</label>
+                    <div class="w-100">
+                        <ng-select [clearable]="false" (ngModelChange)="removeErrors('#l7')" [items]="state" bindLabel="name" bindValue="id" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedState">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="mb-0 ml-1">sex</label>
+                    <div class="w-100">
+                        <ng-select [clearable]="false" (ngModelChange)="removeErrors('#l7')" [items]="sex" bindLabel="name" bindValue="name" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedSex">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="mb-0 ml-1">size</label>
+                    <div class="w-100">
+                        <ng-select [clearable]="false" (ngModelChange)="removeErrors('#l7')" [items]="size" bindLabel="name" bindValue="name" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedSize">
+                        </ng-select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row m-0 mt-2">
+                <div class="col">
+                    <label class="mb-0 ml-1">Color</label>
+                    <div class="w-100">
+                        <ng-select [clearable]="false" (ngModelChange)="removeErrors('#l7')" [items]="color" bindLabel="name" bindValue="id" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedColor">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="mb-0 ml-1">Energy Level</label>
+                    <div class="w-100">
+                        <ng-select [clearable]="false" (ngModelChange)="removeErrors('#l7')" [items]="energyLevel" bindLabel="name" bindValue="name" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedEnergyLevel">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="col">
+                    <label class="mb-0 ml-1">age</label>
+                    <div class="w-100">
+                        <ng-select [clearable]="false" (ngModelChange)="removeErrors('#l7')" [items]="age" bindLabel="name" bindValue="name" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedAge">
+                        </ng-select>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <div class="row m-0 justify-content-center">
+                <button class="btn login-btn" style="width: fit-content;" type="button" (click)="search()"> Search</button>
+            </div>
+
+
+
+            <div *ngFor="let feed of resultList">
+                <div style="width: 280px; border: 1px solid #dbdbdb; padding: 3px;">
+                    <div class="d-flex">
+                        <img *ngIf="feed.user.profile_picture== ''" class="sug-acc-img mr-2" src="/assets/images/default.jpg">
+                        <img *ngIf="feed.user.profile_picture!=''" class="sug-acc-img mr-2" [src]="feed.user.profile_picture_url">
+                        <div class="mt-2">
+                            <b class="m-0">{{feed.user.name}}</b>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex">
+                    <video width="280" height="400" controls controlsList="nodownload" style="object-fit: initial;">
+                        <source [src]="feed.video_url" type="video/mp4">
+
+                    </video>
+
+
+                    <div class="like-comment">
+
+
+                        <img *ngIf="feed.liked==0 && isLoggedIn" (click)="addLike(feed.id,1)" class="pointer" style="height: 30px; width: 30px;" src="./assets/images/unlike.png">
+                        <img *ngIf="feed.liked==1 && isLoggedIn" (click)="addLike(feed.id,0)" class="pointer" style="height: 30px; width: 30px;" src="./assets/images/like.png">
+
+                        <img *ngIf="!isLoggedIn" routerLink="/login" class="pointer" style="height: 30px; width: 30px;" src="./assets/images/unlike.png">
+
+                        <span class="d-flex justify-content-center mb-2">{{feed.likes}}</span>
+
+                        <img style="height: 30px; width: 30px;" (click)="modalComments(commentsTemplate,feed.id)" src="./assets/images/comment.png">
+                        <span class="d-flex justify-content-center mb-2">{{feed.saves}}</span>
+                        <img style="height: 25px; width: 25px;" (click)="copyUrl()" src="./assets/images/share.png">
+
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #commentsTemplate>
+
+    <div class="modal-body">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide();close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h3 class="modalTitle extrabold mt-1 mb-1">Comments</h3>
+        <hr class="new3">
+        <div>
+            <div *ngIf="resultListComment.length==0">
+                <span class="ml-1">No Comments</span>
+            </div>
+            <div *ngFor="let comment of resultListComment; let i=index">
+                <div class="row ml-1 mr-1 mb-2">
+
+                    <div class="comment-username">
+                        <img *ngIf="comment.user.profile_picture_url!=null" [src]="comment.user.profile_picture_url" class="comment-acc pointer">
+                        <!-- <img *ngIf="comment.user.profile_picture_url==null" src="./assets/images/default.png" class="comment-acc pointer"> -->
+
+                    </div>
+                    <div class="ml-2 comment-space">
+                        <div class="d-flex">
+                            <b class="pointer">{{comment.user.name}}</b>
+                        </div>
+
+                        <span class="comment-lenght">{{comment.comment}}</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 10px;"></div>
+        <div class="row" *ngIf="commentModalToggle==true && isLoggedIn">
+            <span class="comment-bar p-1">
+                <input type="text" maxlength="150" name="comment" [(ngModel)]="comment"
+                    (ngModelChange)="removeErrors('#l11')" required class="comment-input-field" type="text"
+                    placeholder="comment" aria-label="comment" (keyup.enter)="checkComment()">
+                <img height="20px" src="./assets/images/enter.png" type="submit" class="comment-btn"
+                    (click)=checkComment()>
+            </span>
+            <span class="help-block position-absolute" style="    margin-top: 30px;
+            margin-left: 20px;" id="l11"></span>
+        </div>
+    </div>
+</ng-template>
