@@ -23,8 +23,8 @@ export class ApisService {
    * @returns  in API return get JSON data
    */
   login(email, password): Observable<any> {
-    let url = '/http://168.183.132.182/api/user/login';
-    return this._http.post(url +"?email="+email+"&password="+password , "optional" ).pipe(
+    const url = '/api/user/login';
+    return this._http.post(url +"?email="+email+'&password='+password , 'optional' ).pipe(
       catchError(this.handleError<any>('updatePost'))
     );
   }
@@ -158,7 +158,7 @@ export class ApisService {
 
   }
 
-  
+
   like(post_id, value): Observable<any> {
     this.headers = new HttpHeaders({ 'Authorization': 'Bearer ' + this.auth.getToken() });
     let url = "/api/post/like";

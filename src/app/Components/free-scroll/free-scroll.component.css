@@ -3,9 +3,11 @@
 }
 
 .left-span-text {
-  font-size: 22px;
+  font-size: 26px;
   margin-left: 15px;
   color: #343638;
+  line-height: 1.8;
+  font-weight: 550;
 }
 
 a {
@@ -192,3 +194,38 @@ a {
 img {
   /*margin-left: 10px;*/
 }
+
+.login-button-style {
+  background-color: white;
+  width: 200px !important;
+  color: #17a2b8;
+}
+
+.quote-style {
+  font-size: 15px;
+  margin-left: 15px;
+  color: gray;
+  font-weight: 550;
+}
+
+::ng-deep video::-webkit-media-controls-volume-control-container.closed {
+  left: 32%;
+}
+
+::ng-deep video input{
+  visibility: hidden;
+}
+
+::ng-deep video::-webkit-media-controls-fullscreen-button{
+  visibility: hidden !important;
+}
+::ng-deep video::-webkit-media-controls-mute-button{
+  left: 48% !important;
+}
+
+::ng-deep video::-internal-media-controls-overflow-button{
+    visibility: hidden !important;
+
+}
+
+

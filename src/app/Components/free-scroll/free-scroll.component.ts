@@ -14,12 +14,13 @@ import Swal from 'sweetalert2';
 import {SafeResourceUrl,} from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-  providers: [NgbCarouselConfig], // add NgbCarouselConfig to the component providers
+  selector: 'app-free-scroll',
+  templateUrl: './free-scroll.component.html',
+  styleUrls: ['./free-scroll.component.css']
 })
-export class HomeComponent implements OnInit {
+export class FreeScrollComponent implements OnInit {
+
+
   imagePath: any;
   resultList: any = [];
   productTitle: any;
@@ -32,7 +33,7 @@ export class HomeComponent implements OnInit {
   comment: any;
   userId: any;
   editComments = true;
-  commentModalToggle: boolean = true;
+  commentModalToggle = true;
   comments = [];
   isLoggedIn: any;
   resultListFollower: any = [];
@@ -76,12 +77,12 @@ export class HomeComponent implements OnInit {
     {id: 2, Name: 'Italian'},
     {id: 3, Name: 'Dutch'},
 
-  ]
+  ];
 
   addLike(id, value) {
     this.service.like(id, value).subscribe(
       (res: any) => {
-        if (res['data'].code == 400) {
+        if (res.data.code == 400) {
           this.spinner.hide();
           // this.reuseFun.errorShowSwal(res['data'].message);
         } else {
@@ -108,8 +109,8 @@ export class HomeComponent implements OnInit {
   }
 
   copyUrl(productId) {
-    let val = `${location.origin}/product-page?productId=${productId}`;
-    let selBox = document.createElement('textarea');
+    const val = `${location.origin}/product-page?productId=${productId}`;
+    const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';
     selBox.style.top = '0';
@@ -144,11 +145,11 @@ export class HomeComponent implements OnInit {
     this.spinner.show();
     this.service.homefeed().subscribe(
       (res: any) => {
-        if (res['data'].code == 400) {
+        if (res.data.code == 400) {
           this.spinner.hide();
           // this.reuseFun.errorShowSwal(res['data'].message);
         } else {
-          this.resultList = res['data'];
+          this.resultList = res.data;
           this.spinner.hide();
         }
       },
@@ -164,11 +165,11 @@ export class HomeComponent implements OnInit {
     this.spinner.show();
     this.service.guestHomefeed().subscribe(
       (res: any) => {
-        if (res['data'].code == 400) {
+        if (res.data.code == 400) {
           this.spinner.hide();
           // this.reuseFun.errorShowSwal(res['data'].message);
         } else {
-          this.resultList = res['data'];
+          this.resultList = res.data;
           this.spinner.hide();
         }
       },
@@ -190,8 +191,9 @@ export class HomeComponent implements OnInit {
         1,
         250
       )
-    )
+    ) {
       errorStatus = true;
+    }
 
     if (errorStatus == false) {
       this.addcomment(this.commentProductId, this.comment);
@@ -201,9 +203,9 @@ export class HomeComponent implements OnInit {
   addcomment(productId, comment) {
     this.service.addcomment(productId, comment).subscribe(
       (res: any) => {
-        if (res['data'].code == 400) {
+        if (res.data.code == 400) {
           this.spinner.hide();
-          this.reuseFun.errorShowSwal(res['data'].message);
+          this.reuseFun.errorShowSwal(res.data.message);
         } else {
           // this.resultListComment = res['data']['userResult'];
           // this.spinner.hide();
@@ -219,14 +221,14 @@ export class HomeComponent implements OnInit {
   }
 
   listComment(productId) {
-    console.log(productId)
+    console.log(productId);
     this.spinner.show();
     this.service.listComment(productId).subscribe(
       (res: any) => {
-        if (res['data'].code == 400) {
+        if (res.data.code == 400) {
         } else {
-          this.resultListComment = res['data'];
-          console.log(this.resultListComment)
+          this.resultListComment = res.data;
+          console.log(this.resultListComment);
           this.spinner.hide();
         }
       },

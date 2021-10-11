@@ -56,37 +56,39 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AudioRecordingService } from './Services/audio-recording.service';
 import { ToastrModule } from 'ngx-toastr';
+import { FreeScrollComponent } from './Components/free-scroll/free-scroll.component';
 
 
 @NgModule({
-  declarations: [AppComponent, MainLayoutComponent, ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-    BsDropdownModule.forRoot(),
-    HttpClientModule,
-    ModalModule.forRoot(),
-    NgbModule,
-    NgxSpinnerModule,
-    NgAudioRecorderModule,
-    NgSelectModule,
-    AngularOtpLibModule,
-    ToastrModule.forRoot(),
-    BrowserAnimationsModule,
-    FontAwesomeModule,
-    MatMenuModule,
-    MatButtonToggleModule,
-  ],
+  declarations: [AppComponent, MainLayoutComponent, FreeScrollComponent, ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        BsDropdownModule.forRoot(),
+        HttpClientModule,
+        ModalModule.forRoot(),
+        NgbModule,
+        NgxSpinnerModule,
+        NgAudioRecorderModule,
+        NgSelectModule,
+        AngularOtpLibModule,
+        ToastrModule.forRoot(),
+        BrowserAnimationsModule,
+        FontAwesomeModule,
+        MatMenuModule,
+        MatButtonToggleModule,
+        MatTabsModule,
+    ],
   providers: [MediaMatcher, BsModalService,AudioRecordingService],
- 
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

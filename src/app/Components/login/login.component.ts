@@ -1,17 +1,18 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/Auth/auth.service';
-import { ApisService } from '../../Services/apis.service';
-import { ReuseFunctionService } from '../../Services/reuse-function.service';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { SocialAuthService } from 'angularx-social-login';
-import { SocialUser } from 'angularx-social-login';
+import {Component, OnInit, TemplateRef} from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {Router} from '@angular/router';
+import {AuthService} from 'src/app/Auth/auth.service';
+import {ApisService} from '../../Services/apis.service';
+import {ReuseFunctionService} from '../../Services/reuse-function.service';
+import {BsModalService, BsModalRef} from 'ngx-bootstrap/modal';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {SocialAuthService} from 'angularx-social-login';
+import {SocialUser} from 'angularx-social-login';
 import {
   GoogleLoginProvider,
   FacebookLoginProvider,
 } from 'angularx-social-login';
+
 declare const $: any;
 
 @Component({
@@ -29,14 +30,14 @@ export class LoginComponent implements OnInit {
   visibilityIcon1: any = '/assets/images/hide.png';
   show1: boolean;
   show: boolean;
-  imagePath:any;
+  imagePath: any;
   modalRef: BsModalRef;
   formToggle: any = 0;
-  otpResult:any;
-  Password:any='';
+  otpResult: any;
+  Password: any = '';
   Email: any = '';
-  newPassword:any= '';
-  confirmPassword:any = '';
+  newPassword: any = '';
+  confirmPassword: any = '';
 
 
   constructor(
@@ -48,19 +49,18 @@ export class LoginComponent implements OnInit {
     private auth: AuthService,
     private authSocialService: SocialAuthService
   ) {
-    this.imagePath=this.reuseFun.imagePath;
+    this.imagePath = this.reuseFun.imagePath;
 
     if (this.auth.isLoggedIn()) {
       //if user login status  true then check its verified status
-      this.routes.navigate(['/home']);
+      this.routes.navigate(['/free-scroll']);
     }
     this.show = false;
   }
 
   ngOnInit() {
- 
-  }
 
+  }
 
 
   passwordShowHide() {
@@ -71,6 +71,7 @@ export class LoginComponent implements OnInit {
       this.visibilityIcon = '/assets/images/hide.png';
     }
   }
+
   newPasswordShowHide() {
     this.show = this.reuseFun.passwordVisibility();
     if (this.show) {
@@ -79,6 +80,7 @@ export class LoginComponent implements OnInit {
       this.visibilityIcon = '/assets/images/hide.png';
     }
   }
+
   passwordShowHideConfirmPassword() {
     this.show1 = this.reuseFun.passwordVisibility();
     if (this.show1) {
@@ -94,21 +96,19 @@ export class LoginComponent implements OnInit {
   }
 
 
-
   checkEmail(form: NgForm) {
     let errorStatus = false;
     if (this.reuseFun.emailType('#l3', this.Email)) errorStatus = true;
 
     if (errorStatus == false) {
-   
+
       this.onSubmitEmail()
     }
   }
 
-close(){
-  this.Email = null;
-}
-
+  close() {
+    this.Email = null;
+  }
 
 
   onSubmitEmail() {
@@ -117,17 +117,18 @@ close(){
       (res: any) => {
         if (res['data'].code == 400) {
           this.reuseFun.errorShowSwal(res['data'].message);
-    this.spinner.hide();
+          this.spinner.hide();
 
         } else {
-          this.otpResult=res['data'].OTP;
-          this.formToggle=1;
+          this.otpResult = res['data'].OTP;
+          this.formToggle = 1;
           this.reuseFun.successShowSwal(res['data'].message);
-    this.spinner.hide();
+          this.spinner.hide();
 
         }
       },
-      (err: any) => {}
+      (err: any) => {
+      }
     );
   }
 
@@ -154,24 +155,23 @@ close(){
   }
 
   onSubmitLogin(form: NgForm, template) {
-    debugger
     this.spinner.show();
     this.service.login(form.value.email, form.value.password).subscribe(
       (res: any) => {
         // if (res['message'] == 'message' ) {
         // } else {
-          this.auth.sendToken(res.token);
-          this.auth.sendFullName(res['data'].name);
-          this.auth.sendUserId(res['data'].id);
-          this.auth.sendProfileImage(res['data'].profile_picture_url);
+        this.auth.sendToken(res.token);
+        this.auth.sendFullName(res['data'].name);
+        this.auth.sendUserId(res['data'].id);
+        this.auth.sendProfileImage(res['data'].profile_picture_url);
 
-          this.auth.sendEmail(res['data'].email);
-          this.auth.sendRole(res['data'].userType);
+        this.auth.sendEmail(res['data'].email);
+        this.auth.sendRole(res['data'].userType);
 
-          // $('#imageBtn').trigger('click');
-          this.modalRef = this.modalService.show(template, this.config);
-          this.routes.navigate(['/home']);
-            this.spinner.hide();
+        // $('#imageBtn').trigger('click');
+        this.modalRef = this.modalService.show(template, this.config);
+        this.routes.navigate(['/free-scroll']);
+        this.spinner.hide();
 
       },
       (err: any) => {
@@ -181,8 +181,9 @@ close(){
       }
     );
   }
-  onSubmitAdd(){
-          this.routes.navigate(['/home']);
-          this.modalRef.hide();
-        }
+
+  onSubmitAdd() {
+    this.routes.navigate(['/free-scroll']);
+    this.modalRef.hide();
+  }
 }

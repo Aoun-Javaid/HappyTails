@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MainLayoutComponent } from "./Components/layouts/main-layout/main-layout.component";
+import { MainLayoutComponent } from './Components/layouts/main-layout/main-layout.component';
+import {FreeScrollComponent} from "./Components/free-scroll/free-scroll.component";
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'free-scroll',
     pathMatch: 'full',
   },
   {
@@ -20,8 +21,9 @@ const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       {
-        path: 'home',
-        loadChildren: () =>import('./Components/home/home.module').then((m) => m.HomeModule),
+        path: 'free-scroll',
+        component: FreeScrollComponent
+        // loadChildren: () =>import('./Components/home/home.module').then((m) => m.HomeModule),
       },
       {
         path: 'profile',
@@ -47,7 +49,7 @@ const routes: Routes = [
         path: 'notification',
         loadChildren: () =>import('./Components/notifications/notifications.module').then((m) => m.NotificationsModule),
       },
-      
+
 
     ],
   },

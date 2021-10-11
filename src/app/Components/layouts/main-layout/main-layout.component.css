@@ -165,3 +165,7 @@ a {
 ::ng-deep .ng-star-inserted {
   width: 100% !important;
 }
+
+::ng-deep .mat-drawer {
+  width: auto !important;
+}
