@@ -246,7 +246,8 @@
         </div>
 
         <div class="p-3 card center mb-2" *ngIf="!formToggle">
-            <img class="icon pointer" (click)="back()" src="./assets/images/back.png" alt="">
+            <!-- <img (click)="back()" src="/assets/images/back.png" alt=""> -->
+            <mat-icon class="icon pointer" >arrow_back</mat-icon>
             <h2>Verify Your Email</h2>
             <h5>Enter 4-digit code send to your email</h5>
             <otp [setting]="settings" (onValueChange)="onInputChange($event)"></otp>

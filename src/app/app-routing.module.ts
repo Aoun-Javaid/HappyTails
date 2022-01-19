@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainLayoutComponent } from './Components/layouts/main-layout/main-layout.component';
 import {FreeScrollComponent} from "./Components/free-scroll/free-scroll.component";
+import { ChatModule } from './Components/chat/chat.module';
+
 const routes: Routes = [
   {
     path: '',
@@ -16,6 +18,7 @@ const routes: Routes = [
     path: 'signup',
     loadChildren: () =>import('./Components/signup/signup.module').then((m) => m.SignupModule),
   },
+ 
   {
     path: '',
     component: MainLayoutComponent,
@@ -49,6 +52,10 @@ const routes: Routes = [
         path: 'notification',
         loadChildren: () =>import('./Components/notifications/notifications.module').then((m) => m.NotificationsModule),
       },
+      {
+        path: 'chat',
+        loadChildren: () =>import('./Components/chat/chat.module').then((m) => m.ChatModule),
+      },
 
 
     ],
@@ -57,6 +64,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  
+
+exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -59,8 +59,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { FreeScrollComponent } from './Components/free-scroll/free-scroll.component';
 
 
+
 @NgModule({
-  declarations: [AppComponent, MainLayoutComponent, FreeScrollComponent, ],
+  declarations: [AppComponent, MainLayoutComponent, FreeScrollComponent,  ],
     imports: [
         BrowserModule,
         AppRoutingModule,

@@ -198,7 +198,8 @@ img {
 .login-button-style {
   background-color: white;
   width: 200px !important;
-  color: #17a2b8;
+  
+  border: none !important;
 }
 
 .quote-style {
@@ -228,4 +229,62 @@ img {
 
 }
 
+::ng-deep .mat-drawer {
+  width: auto !important;
+}
+.center-content{
+  overflow: auto;
+   height: 84vh;
 
+}
+.center-content::-webkit-scrollbar {
+  display: none;
+}
+.theme-btn{
+  border-radius: 0px;
+  content: 'Followed';
+}
+.follow-btn-unselected{
+  background-color: white;
+  color: #5894bd;
+  border-color: #5894bd;
+  content:"Follow";
+  border-radius: 0px;
+}
+@media screen and (max-width: 767px) {
+  .hideSection-smallScreen {
+     
+      display: none;
+      
+  }
+  .like-comment{
+    margin-top: 10px !important;
+    margin-left: 20px !important;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 3000px) {
+  .hideSection-LargeScreens {
+     
+      display: none;
+      
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .center-content{
+     margin-left: 60px !important;
+      
+      
+  }
+}
+
+.likesIcon{
+  width: 30px !important;
+  height: 30px !important;
+  margin-left: 10px;
+    margin-right: 10px;
+}
+.likesText{
+  font-size: 15px;
+    line-height: 27px;
+    font-weight: 500;
+}

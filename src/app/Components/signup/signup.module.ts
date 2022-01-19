@@ -6,6 +6,7 @@ import { SignupRoutes } from './signup.routing';
 import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { AngularOtpLibModule } from 'angular-otp-box';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [SignupComponent],
@@ -14,7 +15,8 @@ import { AngularOtpLibModule } from 'angular-otp-box';
     RouterModule.forChild(SignupRoutes),
     FormsModule,
     NgSelectModule,
-    AngularOtpLibModule
+    AngularOtpLibModule,
+    MatIconModule,
   ]
 })
 export class SignupModule { }

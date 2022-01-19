@@ -1,15 +1,20 @@
 <div class="container-fluid " style="margin-top: 100px;">
   <div class="row">
     <!-- Left Portion -->
-    <div class="col-md-3 col-sm-3">
-      <p style="color: #343638;">
+    <div class="col-md-3 col-sm-3  ">
+      <p class="theme-clr">
+        <a>
         <mat-icon>home</mat-icon>
-        <span class="left-span-text">For You</span></p>
+        <span class="left-span-text theme-clr">For You</span>
+      </a>
+      </p>
       <p style="color: #343638;">
+        <a>
         <mat-icon>supervisor_account</mat-icon>
-        <span class="left-span-text">Following</span></p>
+        <span class="left-span-text">Following</span></a></p>
       <!--      <hr>-->
-      <div class="ml-1" style="margin-top: 75px">
+      <div class="hideSection-smallScreen">
+      <div class="ml-1 " style="margin-top: 75px" *ngIf="!isLoggedIn">
         <p class="quote-style">Log in to save animals in need</p>
         <p class="quote-style">Like, comment, share, rescue and adopt</p>
         <div style="display: flex; ">
@@ -17,7 +22,7 @@
           <!--            <img src="assets/images/user.png" style="width:30px;height: 30px;border-radius: 50%;">-->
           <!--          </div>-->
           <div style="margin-left: 15px;margin-top: 20px">
-            <button class="btn btn-lg btn-info login-button-style">Login</button>
+            <button class="btn btn-lg btn-info login-button-style theme-btn ">Login</button>
           </div>
         </div>
         <!--        <a class="theme-clr" style="font-size: 17px;font-weight: 500;">See all <span style="position: absolute;"><mat-icon-->
@@ -44,12 +49,13 @@
           </span>
       </p>
     </div>
+    </div>
     <!-- Center Portion -->
-    <div class="col-md-6 col-sm-6" style="overflow: auto; height: 100vh">
+    <div class="col-md-6 col-sm-6 center-content" >
       <!--      <mat-tab-group animationDuration="0ms">-->
       <!--        <mat-tab label="Videos">Videos Sections-->
       <div *ngFor="let feed of resultList">
-        <div style="width: 280px; padding: 13px;">
+        <div class="d-flex " style="padding: 13px; justify-content: space-between;">
           <div class="d-flex">
             <img *ngIf="feed.user.profile_picture== ''" class="sug-acc-img mr-2" src="/assets/images/default.jpg">
             <img *ngIf="feed.user.profile_picture!=''" class="sug-acc-img mr-2"
@@ -58,15 +64,27 @@
               <b class="m-0">{{feed.user.name}}</b>
             </div>
           </div>
+          <div *ngIf="!isLoggedIn" routerLink="/login">
+            <button  class="btn follow-btn-unselected"  style="float: right;" >
+           Follow
+          </button>
+         
+          </div>
+          <div > 
+          <button *ngIf="isLoggedIn" class="btn" (click)="follow()" [innerText]="isfollow ? 'Followed' : 'Follow'"
+          [ngClass]="{'theme-btn':  isfollow , 'follow-btn-unselected': !isfollow }"  >
+         
+            </button>
+          </div>
         </div>
 
-        <div class="d-flex" style="margin-left: 58px;">
-          <video  width="280" height="400" controls controlsList="nodownload"
+        <div class="d-flex" >
+          <video  width="300" height="400" controls controlsList="nodownload"
                  style="object-fit: initial;border-radius: 8px">
             <source [src]="feed.video_url" type="video/mp4">
 
           </video>
-          <div class="like-comment">
+          <div class="like-comment hideSection-smallScreen">
 
             <!--            <img *ngIf="isLoggedIn" (click)="addLike(feed.id,0)" class="pointer mb-4"-->
             <!--                 style="height: 30px; width: 30px;" src="./assets/images/save.png">-->
@@ -106,6 +124,49 @@
 
           </div>
         </div>
+        <!-- SmallScreen buttons portion  -->
+        <div class="hideSection-LargeScreens">
+        <div class="like-comment  d-flex">
+
+          <!--            <img *ngIf="isLoggedIn" (click)="addLike(feed.id,0)" class="pointer mb-4"-->
+          <!--                 style="height: 30px; width: 30px;" src="./assets/images/save.png">-->
+
+          <!--            <img *ngIf="!isLoggedIn" routerLink="/login" class="pointer mb-4" style="height: 30px; width: 30px;"-->
+          <!--                 src="./assets/images/save.png"><br>-->
+
+          <img *ngIf="feed.liked==0 && isLoggedIn" (click)="addLike(feed.id,1)" class="pointer likesIcon"
+               src="./assets/images/unlike.png">
+          <img *ngIf="feed.liked==1 && isLoggedIn" (click)="addLike(feed.id,0)" class="pointer likesIcon"
+                src="./assets/images/like.png">
+
+          <img *ngIf="!isLoggedIn" routerLink="/login" class="pointer likesIcon"
+               src="./assets/images/unlike.png">
+
+          <span class="d-flex justify-content-center mb-2 likesText">{{feed.likes}}</span>
+
+          <img *ngIf="!isLoggedIn" routerLink="/login" 
+
+               src="./assets/images/comment.png">
+          <img *ngIf="isLoggedIn"  (click)="modalComments(commentsTemplate,feed.id)" class="likesIcon"
+               src="./assets/images/comment.png">
+          <span class="d-flex justify-content-center mb-2 likesText">{{feed.saves}}</span>
+          <img *ngIf="!isLoggedIn" routerLink="/login" 
+               (click)="copyUrl(feed.productId)" class="mb-4 likesIcon"
+               src="./assets/images/share.png"><br>
+          <img *ngIf="isLoggedIn" class="likesIcon" (click)="copyUrl(feed.productId)" class="mb-4 likesIcon"
+               src="./assets/images/share.png"><br>
+
+          <!--            <img style="height: 25px; width: 25px;" *ngIf="isLoggedIn" class="mb-4" src="./assets/images/email.png">-->
+          <!--            <img style="height: 25px; width: 25px;" *ngIf="!isLoggedIn" routerLink="/login" class="mb-4"-->
+          <!--                 src="./assets/images/email.png"><br>-->
+
+
+          <!--            <img style="height: 25px; width: 25px;" *ngIf="isLoggedIn" src="./assets/images/information.png">-->
+          <!--            <img style="height: 25px; width: 25px;" *ngIf="!isLoggedIn" routerLink="/login"-->
+
+        </div>
+      </div>
+        <!-- Small screens button portion display -->
       </div>
       <!--        </mat-tab>-->
       <!--        <mat-tab label="Likes">Likes Section</mat-tab>-->

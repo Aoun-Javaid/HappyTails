@@ -2,12 +2,17 @@
   <div class="row">
     <!-- Left Portion -->
     <div class="col-md-3 col-sm-3">
-      <p style="color: #343638;">
+      <p class="theme-clr">
+        <a>
         <mat-icon>home</mat-icon>
-        <span class="left-span-text">For You</span></p>
+        <span class="left-span-text theme-clr">For You</span>
+      </a>
+      </p>
       <p style="color: #343638;">
+        <a>
         <mat-icon>supervisor_account</mat-icon>
-        <span class="left-span-text">Following</span></p>
+        <span class="left-span-text">Following</span></a></p>
+        <div class="hideSection-smallScreen">
       <hr>
       <div class="ml-1">
         <p style="color: gray;">Your Top accounts</p>
@@ -45,8 +50,9 @@
           </span>
       </p>
     </div>
+    </div>
     <!-- Center Portion -->
-    <div class="col-md-6 col-sm-6" style="overflow: auto; height: 100vh">
+    <div class="col-md-6 col-sm-6 center-content">
 
       <div style="display: flex; ">
         <div>
@@ -87,12 +93,13 @@
               </div>
             </div>
 
-            <div class="d-flex" style="margin-left: 58px;">
-              <video width="280" height="400" controls controlsList="nodownload" style="object-fit: initial;border-radius: 8px">
+            <div class="d-flex" >
+              <video width="300" height="400" controls controlsList="nodownload" style="object-fit: initial;border-radius: 8px">
                 <source [src]="feed.video_url" type="video/mp4">
 
               </video>
-              <div class="like-comment">
+              
+              <div class="like-comment hideSection-smallScreen">
 
                 <img *ngIf="isLoggedIn" (click)="addLike(feed.id,0)" class="pointer mb-4"
                      style="height: 30px; width: 30px;" src="./assets/images/save.png">
@@ -127,6 +134,42 @@
 
               </div>
             </div>
+            <div class="hideSection-LargeScreens">
+            <div class="like-comment d-flex">
+
+              <img style="margin: 0;margin-left: 10px;" *ngIf="isLoggedIn" (click)="addLike(feed.id,0)" class="pointer mb-4 likesIcon"
+                   src="./assets/images/save.png">
+
+              <img style="margin: 0;margin-left: 10px;" *ngIf="!isLoggedIn" routerLink="/login" class="pointer mb-4 likesIcon" 
+                   src="./assets/images/save.png"><br>
+
+              <img *ngIf="feed.liked==0 && isLoggedIn" (click)="addLike(feed.id,1)" class="pointer likesIcon"
+                   src="./assets/images/unlike.png">
+              <img *ngIf="feed.liked==1 && isLoggedIn" (click)="addLike(feed.id,0)" class="pointer likesIcon"
+                    src="./assets/images/like.png">
+
+              <img *ngIf="!isLoggedIn" routerLink="/login" class="pointer likesIcon"
+                   src="./assets/images/unlike.png">
+
+              <span class="d-flex justify-content-center mb-2 likesText">{{feed.likes}}</span>
+
+              <img  (click)="modalComments(commentsTemplate,feed.id)" class="likesIcon"
+                   src="./assets/images/comment.png">
+              <span class="d-flex justify-content-center mb-2 likesText">{{feed.saves}}</span>
+              <img  (click)="copyUrl(feed.productId)" class="mb-4 likesIcon"
+                   src="./assets/images/share.png"><br>
+
+              <img  *ngIf="isLoggedIn" class="mb-4 likesIcon" src="./assets/images/email.png">
+              <img  *ngIf="!isLoggedIn" routerLink="/login" class="mb-4 likesIcon"
+                   src="./assets/images/email.png"><br>
+
+
+              <img style="margin: 0;" *ngIf="isLoggedIn" src="./assets/images/information.png" class="likesIcon">
+              <img style="margin: 0;" *ngIf="!isLoggedIn" routerLink="/login" class="likesIcon"
+                   src="./assets/images/information.png">
+
+            </div>
+          </div>
           </div>
         </mat-tab>
         <mat-tab label="Likes">Likes Section</mat-tab>
@@ -135,7 +178,7 @@
 
     </div>
     <!-- Right Portion -->
-    <div class="col-md-3 col-sm-3">
+    <div class="col-md-3 col-sm-3 hideSection-smallScreen">
       <div style="display: flex;">
         <mat-icon style="color: greenyellow;">contact_support</mat-icon>
         <mat-icon style="color: blue;">contact_support</mat-icon>

@@ -8,7 +8,7 @@
       </div>
       <div class="mt-5">
         <a href="#" class="navbar-brand pointer"><img width="40px" src="/assets/images/happytails.png"><span
-          style="margin-left: 10px;color:#000000d4;">Happy Tail</span> </a>
+            style="margin-left: 10px;color:#000000d4;">Happy Tail</span> </a>
       </div>
       <div class="mt-5 ">
         <a>For You</a><br>
@@ -25,6 +25,7 @@
         <p class="side-p">Programs</p>
         <a>HappyTail for Good</a><br>
         <a>Advertise</a><br>
+        <a>Privacy Policy</a><br>
 
 
       </div>
@@ -35,77 +36,87 @@
   <mat-drawer-content>
     <nav class="navbar navbar-expand-md navbar-light  fixed-top" style="background-color: white;">
       <div class="container-fluid" style="padding-bottom: 11px; border-bottom: 1px solid #c0bdbd4f;">
-                <span>
+        <span>
 
-                <span *ngIf="!isLoggedIn"><a (click)="drawer.toggle()"
-                                             style="cursor: pointer;margin-right: 10px;font-size: 25px;">☰ </a></span>
-                <a href="#" class="navbar-brand pointer"><img width="40px" src="/assets/images/happytails.png"><span
-                  style="margin-left: 10px;">Happy Tail</span> </a>
-            </span>
+          <span *ngIf="!isLoggedIn"><a (click)="drawer.toggle()"
+              style="cursor: pointer;margin-right: 10px;font-size: 25px;">☰ </a></span>
+          <a href="#" class="navbar-brand pointer"><img width="40px" src="/assets/images/happytails.png"><span
+              style="margin-left: 10px;">Happy Tail</span> </a>
+        </span>
         <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button> -->
+                  <span class="navbar-toggler-icon"></span>
+              </button> -->
         <!-- id="navbarCollapse" -->
 
         <div class="  justify-content-between">
           <div class="navbar-nav">
             <!-- <a href="#" class="nav-item nav-link active">Home</a>
-            <a href="#" class="nav-item nav-link">Profile</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Messages</a>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Inbox</a>
-                    <a href="#" class="dropdown-item">Sent</a>
-                    <a href="#" class="dropdown-item">Drafts</a>
-                </div>
-            </div> -->
+                      <a href="#" class="nav-item nav-link">Profile</a>
+                      <div class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Messages</a>
+                          <div class="dropdown-menu">
+                              <a href="#" class="dropdown-item">Inbox</a>
+                              <a href="#" class="dropdown-item">Sent</a>
+                              <a href="#" class="dropdown-item">Drafts</a>
+                          </div>
+                      </div> -->
           </div>
           <form class="form-inline">
             <div class="input-group">
               <!-- <input type="text" class="form-control" placeholder="Search">
-              <div class="input-group-append">
-                  <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
-              </div> -->
+                          <div class="input-group-append">
+                              <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                          </div> -->
             </div>
           </form>
 
           <!-- <div *ngIf="isLoggedIn">
-              <img class="profile-img" [src]="profile">
-          </div> -->
+                      <img class="profile-img" [src]="profile">
+                  </div> -->
           <div class=" right">
 
-            <div class="navbar-nav" *ngIf="!isLoggedIn">
-              <span><a><mat-icon class="upload-icon" style="top:5px;">cloud_upload</mat-icon></a></span>
+            <div class="navbar-nav " *ngIf="!isLoggedIn">
+              <!-- <span>
+                          <a><mat-icon class="upload-icon" style="top:5px;">cloud_upload</mat-icon></a>
+                      </span> -->
               <a class="btn theme-btn " (click)="loginModal.show()">Login</a>
+
+
             </div>
             <!-- <span class="mt-2 mr-2" type="button" data-toggle="dropdown" *ngIf="isLoggedIn">
-                <img class="profile-img" [src]="profile"></span>
-            <ul class="dropdown-menu dropdown-mange">
+                          <img class="profile-img" [src]="profile"></span>
+                      <ul class="dropdown-menu dropdown-mange">
 
-                <li class="pointer dropdown-manges" routerLink="/profile">
-                    <span >Profile</span>
-                </li>
+                          <li class="pointer dropdown-manges" routerLink="/profile">
+                              <span >Profile</span>
+                          </li>
 
-                <li class="pointer dropdown-manges">
+                          <li class="pointer dropdown-manges">
 
-                    <div class="navbar-nav" *ngIf="isLoggedIn">
-                        <span (click)="signOut()">Log Out</span>
-                    </div>
-                </li>
-            </ul> -->
+                              <div class="navbar-nav" *ngIf="isLoggedIn">
+                                  <span (click)="signOut()">Log Out</span>
+                              </div>
+                          </li>
+                      </ul> -->
             <div class="btn-group" dropdown *ngIf="isLoggedIn">
-              <span><a><mat-icon class="upload-icon ">cloud_upload</mat-icon></a></span>
-              <span><a [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"><mat-icon
-                class="notification-icon"> bubble_chart</mat-icon></a></span>
+              <!-- <span><a><mat-icon class="upload-icon ">cloud_upload</mat-icon></a></span> -->
+              <span><a routerLink="/chat">
+                  <mat-icon class="search-icon">chat</mat-icon>
+                </a></span>
+              <span><a [matMenuTriggerFor]="search" aria-label="Example icon-button with a menu">
+                  <mat-icon class="search-icon ">search</mat-icon>
+                </a></span>
+              <span><a [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <mat-icon class="notification-icon"> bubble_chart</mat-icon>
+                </a></span>
               <span id="button-basic" dropdownToggle type="button" class="mt-2  dropdown-toggle"
-                    aria-controls="dropdown-basic">
-                                    <img class="profile-img" src="assets/images/profile.png">
-                            </span>
-              <ul id="dropdown-basic " *dropdownMenu class="dropdown-menu"
-                  role="menu" aria-labelledby="button-basic">
-                <li role="menuitem"><a class="dropdown-item" href="#">Profile</a></li>
+                aria-controls="dropdown-basic">
+                <img class="profile-img" src="assets/images/profile.png">
+              </span>
+              <ul id="dropdown-basic " *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+                <li role="menuitem"><a class="dropdown-item" routerLink="/dashboard">Profile</a></li>
                 <li role="menuitem"><a style="color: rgba(212, 81, 29, 0.986);" class="dropdown-item"
-                                       (click)="signOut()">Log Out</a></li>
+                    (click)="signOut()">Log Out</a></li>
 
 
               </ul>
@@ -125,21 +136,74 @@
     <!-- <button class="btn btn-primary" (click)="loginModal.show()">Large modal</button> -->
 
 
+
   </mat-drawer-content>
 </mat-drawer-container>
+
+<!-- Menu for Search -->
+<mat-menu #search="matMenu">
+
+  <div (click)="$event.stopPropagation();$event.preventDefault();" class="p-2">
+    <p class="search-title">Search</p>
+    <input class="form-control my-1" placeholder="Select State" type="search" list="datalistState">
+    <input class="form-control my-1" placeholder="Select Color" type="search" list="datalistColor">
+    <input class="form-control my-1" placeholder="Select Sex" type="search" list="datalistSex">
+    <input class="form-control my-1" placeholder="Select Age" type="search" list="datalistAge">
+    <input class="form-control my-1" placeholder="Select Energy Level" type="search" list="datalistEnergyLevel">
+    <input class="form-control my-1" placeholder="Select Size" type="search" list="datalistSize">
+  </div>
+  <div class="d-flex " style="justify-content: center;">
+    <button class="btn  theme-btn " style="width: 50%; border-radius: 0px;">Search</button>
+</div>
+  
+
+</mat-menu>
+<datalist id="datalistState">
+  <option>...</option>
+</datalist>
+<datalist id="datalistColor">
+  <option>...</option>
+</datalist>
+<datalist id="datalistSex">
+  <option>...</option>
+</datalist>
+<datalist id="datalistAge">
+  <option>...</option>
+</datalist>
+<datalist id="datalistEnergyLevel">
+  <option>...</option>
+</datalist>
+<datalist id="datalistSize">
+  <option>...</option>
+</datalist>
+
+
+
 <!-- Menu For Notification -->
 
 <mat-menu #menu="matMenu">
 
   <h2 class="pl-1 py-1">Notification</h2>
-  <mat-button-toggle-group [(ngModel)]="fontStyle" name="favoriteColor" aria-label="Favorite Color"
-                           (click)="$event.stopPropagation();$event.preventDefault();">
+  <mat-button-toggle-group #group="matButtonToggleGroup" [(ngModel)]="NotificationSelection" name="favoriteColor"
+    aria-label="Favorite Color" (click)="$event.stopPropagation();$event.preventDefault();" value="All">
+    <!-- <div class="row">
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+        <div class="col-3"></div>
+
+        <div class="col-3"></div>
+
+    </div> -->
     <mat-button-toggle value="All" (click)="NotificationFetcher()">All</mat-button-toggle>
     <mat-button-toggle value="Likes">Likes</mat-button-toggle>
     <mat-button-toggle value="Comments">Comments</mat-button-toggle>
     <mat-button-toggle value="Followers">Followers</mat-button-toggle>
   </mat-button-toggle-group>
-  <p>Chosen value is {{fontStyle}}</p>
+  <p>Chosen value is {{NotificationSelection}}
+    and {{group.value}}
+  </p>
+
+
   <p style="color: gray;font-size: small; " class="pl-1">New</p>
   <!-- for comment -->
   <div class="d-flex m-1" style="justify-content: space-between;">
@@ -202,24 +266,12 @@
       <img src="assets/images/profile2.png" style="width: 30px;height: 35px; ">
     </div>
   </div>
-  <!-- <button mat-menu-item>
-    <mat-icon>dialpad</mat-icon>
-    <span>Redial</span>
-  </button>
-  <button mat-menu-item disabled>
-    <mat-icon>voicemail</mat-icon>
-    <span>Check voice mail</span>
-  </button>
-  <button mat-menu-item>
-    <mat-icon>notifications_off</mat-icon>
-    <span>Disable alerts</span>
-  </button> -->
+
 
 </mat-menu>
 
 <!-- Login Modal -->
-<div bsModal #loginModal="bs-modal" class="modal fade" tabindex="-1"
-     role="dialog" aria-labelledby="dialog-sizes-name1">
+<div bsModal #loginModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -228,100 +280,79 @@
           <span aria-hidden="true" class="visually-hidden">&times;</span>
         </button>
       </div>
-      <div class="modal-body ">
+      <div class="modal-body d-flex " style="justify-content: center;">
 
-        <div class="row">
-          <div class="col-3"></div>
-          <div class="col-6 " style="text-align: center;">
-            <h1 class="no-marginBottom">Log in to Happy-Tail</h1>
-            <p style="color: #bcbcbd;">Manage Your account, check notifications, comment on videos, and more</p>
-            <div class="overflow-auto" style="height: 300px; width: auto;">
-              <button type="button" class="btn  btn1" routerLink="login">
-                <div class="row">
-                  <div class="col-1">
-                    <mat-icon>person</mat-icon>
-                  </div>
-                  <div class="col-11">
-                    Use email /username
-                  </div>
-                </div>
-              </button>
-              <button type="button" class="btn btn-light btn1">
-                <div class="row">
-                  <div class="col-1">
 
-                  </div>
-                  <div class="col-11" style="padding: 0;">
-                    Log in with Facebook
-                  </div>
+        <div class="adjustment" style="text-align: center;">
+          <h1 class="no-marginBottom">Log in to Happy-Tail</h1>
+          <p style="color: #bcbcbd;">Manage Your account, check notifications, comment on videos, and more</p>
+          <div class="overflow-auto" style="height: 300px; width: auto;">
+            <button type="button" class="btn  btn1" routerLink="login">
+              <div class="row">
+                <div class="col-1">
+                  <mat-icon>person</mat-icon>
                 </div>
-              </button>
-              <button type="button" class="btn btn-light btn1">
-                <div class="row">
-                  <div class="col-1">
-                    <mat-icon>person</mat-icon>
-                  </div>
-                  <div class="col-11" style="padding: 0;">
-                    Log in with Google
-                  </div>
+                <div class="col-10">
+                  Use email /username
                 </div>
-              </button>
-              <button type="button" class="btn btn-light btn1">
-                <div class="row">
-                  <div class="col-1">
-                    <mat-icon>person</mat-icon>
-                  </div>
-                  <div class="col-11" style="padding: 0;">
-                    Log in with Twitter
-                  </div>
-                </div>
-              </button>
-              <button type="button" class="btn btn-light btn1">
-                <div class="row">
-                  <div class="col-1">
-                    <mat-icon>person</mat-icon>
-                  </div>
-                  <div class="col-11" style="padding: 0;">
-                    Log in with LINE
-                  </div>
-                </div>
-              </button>
-              <button type="button" class="btn btn-light btn1">
-                <div class="row">
-                  <div class="col-1">
-                    <mat-icon>person</mat-icon>
-                  </div>
-                  <div class="col-11" style="padding: 0;">
-                    Log in with KakaoTalk
-                  </div>
-                </div>
-              </button>
-              <button type="button" class="btn btn-light btn1">
-                <div class="row">
-                  <div class="col-1">
-                    <mat-icon>person</mat-icon>
-                  </div>
-                  <div class="col-11" style="padding: 0;">
-                    Log in with Apple
-                  </div>
-                </div>
-              </button>
+              </div>
+            </button>
+            <button type="button" class="btn btn-light btn1">
+              <div class="row">
+                <div class="col-1">
 
-            </div>
-            <p class="mt-3" style="text-align: center;">
-              Dont have an account? <a (click)="SignUpModal.show();loginModal.hide()" style="color: #5894bd">Sign
-              up </a>
-            </p>
+                </div>
+                <div class="col-10" style="padding: 0;">
+                  Log in with Facebook
+                </div>
+              </div>
+            </button>
+            <button type="button" class="btn btn-light btn1">
+              <div class="row">
+                <div class="col-1">
+                  <mat-icon>person</mat-icon>
+                </div>
+                <div class="col-10" style="padding: 0;">
+                  Log in with Google
+                </div>
+              </div>
+            </button>
+            <button type="button" class="btn btn-light btn1">
+              <div class="row">
+                <div class="col-1">
+                  <mat-icon>person</mat-icon>
+                </div>
+                <div class="col-10" style="padding: 0;">
+                  Log in with Twitter
+                </div>
+              </div>
+            </button>
+
+
+            <button type="button" class="btn btn-light btn1">
+              <div class="row">
+                <div class="col-1">
+                  <mat-icon>person</mat-icon>
+                </div>
+                <div class="col-10" style="padding: 0;">
+                  Log in with Apple
+                </div>
+              </div>
+            </button>
 
           </div>
-          <div class="col-3"></div>
-
+          <p class="mt-3" style="text-align: center;">
+            Dont have an account? <a (click)="SignUpModal.show();loginModal.hide()" style="color: #5894bd">Sign up </a>
+          </p>
 
         </div>
+
       </div>
       <div class="modal-footer">
         <a class=" pull-right" style="color: #bcbcbd;">
-          <span><mat-icon class="help-icon">help</mat-icon></span>Feedback and help
+          <span>
+            <mat-icon class="help-icon">help</mat-icon>
+          </span>Feedback and help
         </a>
       </div>
 
@@ -330,8 +361,8 @@
 </div>
 
 <!-- Signup Modal -->
-<div bsModal #SignUpModal="bs-modal" class="modal fade" tabindex="-1"
-     role="dialog" aria-labelledby="dialog-sizes-name1">
+<div bsModal #SignUpModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="dialog-sizes-name1">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -340,61 +371,60 @@
           <span aria-hidden="true" class="visually-hidden">&times;</span>
         </button>
       </div>
-      <div class="modal-body ">
+      <div class="modal-body d-flex" style="justify-content: center;">
 
-        <div class="row">
-          <div class="col-3"></div>
-          <div class="col-6 " style="text-align: center;">
-            <h1 class="no-marginBottom">Sign up to Happy-Tail</h1>
-            <p style="color: #bcbcbd;">Create a profile, follow other accounts, make your own videos, and more</p>
-            <div>
-              <button type="button" class="btn  btn1">
-                <div class="row">
-                  <div class="col-1">
-                    <mat-icon>person</mat-icon>
-                  </div>
-                  <div class="col-11">
-                    Use email /username
-                  </div>
-                </div>
-              </button>
-              <button type="button" class="btn btn-light btn1">
-                <div class="row">
-                  <div class="col-1">
 
-                  </div>
-                  <div class="col-11">
-                    Sign up with Facebook
-                  </div>
+        <div class="adjustment" style="text-align: center;">
+          <h1 class="no-marginBottom">Sign up to Happy-Tail</h1>
+          <p style="color: #bcbcbd;">Create a profile, follow other accounts, make your own videos, and more</p>
+          <div>
+            <button type="button" class="btn  btn1">
+              <div class="row">
+                <div class="col-1">
+                  <mat-icon>person</mat-icon>
                 </div>
-              </button>
-              <button type="button" class="btn btn-light btn1">
-                <div class="row">
-                  <div class="col-1">
-                    <mat-icon>person</mat-icon>
-                  </div>
-                  <div class="col-11">
-                    Sign up with Google
-                  </div>
+                <div class="col-10">
+                  Use email /username
                 </div>
-              </button>
-            </div>
-            <p style="color: #bcbcbd;" class="mt-5">
-              By Continuing you agree to HappyTail's <span style="color: black;"><a>Terms of Use</a></span> and confirm
-              that you have read HappyTail's <span style="color: black;"><a>Privacy Policy</a></span>
-            </p>
-            <p class="mt-3" style="text-align: center;">
-              Already have an account? <a (click)="SignUpModal.hide();loginModal.show()" style="color: #5894bd">Log
-              in </a>
-            </p>
+              </div>
+            </button>
+            <button type="button" class="btn btn-light btn1">
+              <div class="row">
+                <div class="col-1">
+
+                </div>
+                <div class="col-10">
+                  Sign up with Facebook
+                </div>
+              </div>
+            </button>
+            <button type="button" class="btn btn-light btn1">
+              <div class="row">
+                <div class="col-1">
+                  <mat-icon>person</mat-icon>
+                </div>
+                <div class="col-10">
+                  Sign up with Google
+                </div>
+              </div>
+            </button>
           </div>
-          <div class="col-3"></div>
-
+          <p style="color: #bcbcbd;" class="mt-5">
+            By Continuing you agree to HappyTail's <span style="color: black;"><a>Terms of Use</a></span> and confirm
+            that you have read HappyTail's <span style="color: black;"><a>Privacy Policy</a></span>
+          </p>
+          <p class="mt-3" style="text-align: center;">
+            Already have an account? <a (click)="SignUpModal.hide();loginModal.show()" style="color: #5894bd">Log in
+            </a>
+          </p>
         </div>
+
       </div>
       <div class="modal-footer">
         <a class=" pull-right" style="color: #bcbcbd;">
-          <span><mat-icon class="help-icon">help</mat-icon></span>Feedback and help
+          <span>
+            <mat-icon class="help-icon">help</mat-icon>
+          </span>Feedback and help
         </a>
       </div>
 

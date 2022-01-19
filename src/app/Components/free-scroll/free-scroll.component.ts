@@ -236,5 +236,9 @@ export class FreeScrollComponent implements OnInit {
       }
     );
   }
+  isfollow= false ;
+  follow(){
+    this.isfollow=!this.isfollow;
+  }
 
 }

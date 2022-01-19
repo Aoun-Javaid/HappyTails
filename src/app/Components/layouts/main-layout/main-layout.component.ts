@@ -22,7 +22,7 @@ declare const $: any;
   styleUrls: ['./main-layout.component.css']
 })
 export class MainLayoutComponent implements OnInit {
-  fontStyle?: string;
+  NotificationSelection?: string;
   isLoggedIn: any;
   profile: any;
   profileImage: any;
@@ -63,7 +63,8 @@ export class MainLayoutComponent implements OnInit {
   logout() {
     localStorage.setItem('logout-event', 'logout' + Math.random());
     this.auth.logout();
-    this._router.navigateByUrl('/home');
+    debugger
+    this._router.navigateByUrl('/free-scroll');
     $('#imageBtn').trigger('click');
   }
 

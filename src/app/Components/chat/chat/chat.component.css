@@ -1,0 +1,25 @@
+.center-content{
+     overflow: auto;
+      height: 83vh;
+      width: auto;
+      border: 1px solid #e6e9ea;
+   }
+   /* .center-content::-webkit-scrollbar {
+     display: none;
+   } */
+   a{
+        cursor: pointer;
+   }
+   a:hover{
+        background-color: lightgreen !important;
+   }
+   .conversation-styles{
+        border: 1px solid lightgray;
+   }
+   .conversation-styles:hover{
+        background-color: gray;
+   }
+   ::ng-deep .mat-card {
+     background: whitesmoke;
+     color: #424242;
+ }

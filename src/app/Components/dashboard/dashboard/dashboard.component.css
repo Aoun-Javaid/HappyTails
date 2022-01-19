@@ -192,3 +192,50 @@ a {
 img {
   /*margin-left: 10px;*/
 }
+.center-content{
+  overflow: auto;
+   height: 83vh;
+   width: auto;
+
+}
+.center-content::-webkit-scrollbar {
+  display: none;
+}
+/* freescroll css */
+@media screen and (max-width: 767px) {
+  .hideSection-smallScreen {
+     
+      display: none;
+      
+  }
+  .like-comment{
+    margin-top: 10px !important;
+    margin-left: 0px !important;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 3000px) {
+  .hideSection-LargeScreens {
+     
+      display: none;
+      
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .center-content{
+     margin-left: 60px !important;
+      
+      
+  }
+}
+
+.likesIcon{
+  width: 30px !important;
+  height: 30px !important;
+  margin-left: 10px;
+    margin-right: 10px;
+}
+.likesText{
+  font-size: 15px;
+    line-height: 27px;
+    font-weight: 500;
+}

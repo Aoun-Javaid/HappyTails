@@ -128,6 +128,24 @@ a {
   color: #205f60;
   cursor: pointer;
 }
+.search-icon {
+  position: relative;
+  font-size: 32px;
+  right: 25px;
+  top: 10px;
+  margin-left: 25px;
+  color: #5894bd;
+  cursor: pointer;
+}
+.chat-icon{
+  position: relative;
+  font-size: 32px;
+  right: 25px;
+  top: 10px;
+  margin-left: 25px;
+  color: #5894bd;
+  cursor: pointer;
+}
 
 .notification-icon {
   position: relative;
@@ -168,4 +186,78 @@ a {
 
 ::ng-deep .mat-drawer {
   width: auto !important;
+}
+@media screen and (min-width: 320px) and (max-width: 374px) {
+  .profile-img {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+.notification-icon {
+  position: relative;
+  font-size: 32px;
+  right: 15px;
+  top: 10px;
+  margin-left: 0px;
+  color: orangered;
+  cursor: pointer;
+  }
+  .search-icon {
+    position: relative;
+    font-size: 32px;
+    right: 20px;
+    top: 10px;
+    margin-left: 10px;
+    color: #5894bd;
+    cursor: pointer;
+}
+.chat-icon{
+  position: relative;
+  font-size: 32px;
+  right: 25px;
+  top: 10px;
+  margin-left: 25px;
+  color: #5894bd;
+  cursor: pointer;
+}
+
+
+}
+
+@media screen and (min-width: 375px) and (max-width: 424px) {
+ 
+.notification-icon {
+  position: relative;
+  font-size: 32px;
+  right: 17px;
+  top: 10px;
+  margin-left: 5px;
+  color: orangered;
+  cursor: pointer;
+  }
+  .search-icon {
+    position: relative;
+    font-size: 32px;
+    right: 26px;
+    top: 10px;
+    margin-left: 17px;
+    color: #5894bd;
+    cursor: pointer;
+}
+.chat-icon{
+  position: relative;
+  font-size: 32px;
+  right: 25px;
+  top: 10px;
+  margin-left: 25px;
+  color: #5894bd;
+  cursor: pointer;
+}
+
+
+}
+@media screen and (min-width: 767px) {
+  .adjustment{
+    width: 50% !important;
+  }
 }
